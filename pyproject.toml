@@ -1,0 +1,28 @@
+[project]
+name = "international_trade_legal_document_automation"
+version = "0.1.0"
+description = "international_trade_legal_document_automation using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "crewai[anthropic,file-processing,litellm,tools]>=1.15.22,<2.0.0",
+    "exa-py",
+    "fastapi>=0.142.2",
+    "pydantic>=2.12.5",
+    "uvicorn>=0.54.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/international_trade_legal_document_automation"]
+
+[tool.crewai]
+type = "flow"
+definition = "src/international_trade_legal_document_automation/flow.json"
+project_id = "837da0b1-a2cc-4370-b188-5ff5a0d560ec"
+
+[tool.uv]
+override-dependencies = ["litellm<=1.82.6"]
