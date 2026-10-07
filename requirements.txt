@@ -3,3 +3,5 @@ crewai
 litellm
 pydantic
 requests
+python-docx
+reportlab

@@ -1,13 +1,83 @@
 import os
 import sys
+import io
 import streamlit as st
+
+# 匯入文件轉換套件
+from docx import Document
+from reportlab.lib.pagesizes import letter
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.pdfgen import canvas
 
 # 將 src 目錄納入 Python 模組搜尋路徑
 sys.path.append(os.path.join(os.path.dirname(__file__), "src"))
 
 from international_trade_legal_document_automation.crews.crew import InternationalTradeLegalDocumentAutomation
 
-# 頁面配置
+# -----------------------------------------------------------------------------
+# 輔助函式：將文字轉為 Word 檔案 (BytesIO)
+# -----------------------------------------------------------------------------
+def create_word_docx(text_content: str) -> io.BytesIO:
+    doc = Document()
+    doc.add_heading('國際貿易文件與風險評估報告', level=0)
+    
+    # 按行寫入 Word，保留 basic 排版
+    for line in text_content.split('\n'):
+        line_str = line.strip()
+        if not line_str:
+            continue
+        if line_str.startswith('# '):
+            doc.add_heading(line_str.replace('# ', ''), level=1)
+        elif line_str.startswith('## '):
+            doc.add_heading(line_str.replace('## ', ''), level=2)
+        elif line_str.startswith('### '):
+            doc.add_heading(line_str.replace('### ', ''), level=3)
+        elif line_str.startswith('* ') or line_str.startswith('- '):
+            doc.add_paragraph(line_str[2:], style='List Bullet')
+        else:
+            doc.add_paragraph(line_str)
+            
+    buffer = io.BytesIO()
+    doc.save(buffer)
+    buffer.seek(0)
+    return buffer
+
+# -----------------------------------------------------------------------------
+# 輔助函式：將文字轉為 PDF 檔案 (BytesIO)
+# -----------------------------------------------------------------------------
+def create_pdf(text_content: str) -> io.BytesIO:
+    buffer = io.BytesIO()
+    doc = SimpleDocTemplate(buffer, pagesize=letter)
+    styles = getSampleStyleSheet()
+    
+    # 建立自訂段落樣式
+    body_style = ParagraphStyle('CustomBody', parent=styles['Normal'], spaceAfter=6, leading=14)
+    heading_style = ParagraphStyle('CustomHeading', parent=styles['Heading2'], spaceAfter=10, leading=18)
+    
+    story = []
+    for line in text_content.split('\n'):
+        line_str = line.strip()
+        if not line_str:
+            story.append(Spacer(1, 6))
+            continue
+        
+        # 轉義 HTML 敏感字元
+        safe_text = line_str.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;')
+        
+        if safe_text.startswith('#'):
+            clean_text = safe_text.lstrip('#').strip()
+            story.append(Paragraph(f"<b>{clean_text}</b>", heading_style))
+        else:
+            story.append(Paragraph(safe_text, body_style))
+            
+    doc.build(story)
+    buffer.seek(0)
+    return buffer
+
+# -----------------------------------------------------------------------------
+# Streamlit 頁面主體
+# -----------------------------------------------------------------------------
 st.set_page_config(
     page_title="國際貿易自動化文件與風險分析系統",
     page_icon="⚖️",
@@ -32,7 +102,6 @@ if openrouter_key:
 
 st.subheader("📋 Run Parameters / 交易資料表單")
 
-# 使用 5 個分頁整理所有必要欄位
 tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "1. 文件與通關資訊", 
     "2. 出口商資料 (Exporter)", 
@@ -44,7 +113,6 @@ tab1, tab2, tab3, tab4, tab5 = st.tabs([
 with tab1:
     col1, col2 = st.columns(2)
     with col1:
-        # 文件名稱必須完全與 Agent 觸發條件一致（精確匹配大小寫與字串）
         document_type = st.selectbox(
             "document_type *",
             [
@@ -56,12 +124,11 @@ with tab1:
                 "Bill of Lading",
                 "Inspection Certificate",
                 "Other"
-            ],
-            help="請選擇要生成的文件類型（英文名稱與系統 Agent 觸發字串嚴格對應）"
+            ]
         )
-        target_import_country = st.text_input("target_import_country *", "United States", help="例如：United States | Germany | Japan")
+        target_import_country = st.text_input("target_import_country *", "United States")
     with col2:
-        hs_code = st.text_input("hs_code *", "5911.10", help="包含小數點的全碼，例如：8471.30 | 6203.42")
+        hs_code = st.text_input("hs_code *", "5911.10")
         output_language = st.selectbox("文件語言版本", ["中英文雙語對照版 (Bilingual CN/EN)", "僅英文 (English Only)", "僅中文 (Traditional Chinese Only)"])
 
 with tab2:
@@ -101,11 +168,11 @@ with tab4:
         product_name = st.text_input("name *", "Wireless Bluetooth Headphones Model BT-500")
         currency = st.selectbox("currency *", ["USD", "EUR", "GBP", "JPY", "AUD", "CAD", "CNY", "HKD"])
         quantity = st.text_input("quantity *", "1000 UNITS")
-        unit_price = st.text_input("unit_price *", "45.00", help="僅填數字")
-        total_price = st.text_input("total_price *", "45000.00", help="僅填數字")
+        unit_price = st.text_input("unit_price *", "45.00")
+        total_price = st.text_input("total_price *", "45000.00")
     with p_col2:
         packaging = st.text_input("packaging *", "10 PCS per carton, export standard carton 40x30x25cm, total 100 cartons")
-        production_date = st.text_input("production_date *", "2026-11", help="格式：YYYY-MM 或 YYYY-MM-DD")
+        production_date = st.text_input("production_date *", "2026-11")
         description = st.text_area("description *", "Wireless stereo headphones with active noise cancellation, Bluetooth 5.0, rechargeable lithium battery", height=68)
         specifications = st.text_area("specifications *", "Material: ABS plastic + aluminum; Weight: 280g; Battery: 500mAh; Color: Black", height=68)
 
@@ -130,14 +197,12 @@ with tab5:
 
 st.markdown("---")
 
-# 觸發按鈕
 if st.button(f"🚀 開始生成【{document_type}】文件與風險評估報告", type="primary", use_container_width=True):
     if not openrouter_key:
         st.error("請先提供 OpenRouter API Key！")
     else:
-        with st.spinner(f"AI Agent 團隊正在處理【{document_type}】資料、進行條款風險分析，並起草中英文文件..."):
+        with st.spinner(f"AI Agent 團隊正在處理【{document_type}】資料並進行分析，請稍候..."):
             try:
-                # 構建傳遞給 CrewAI 的完整 Inputs 字典（包含所有層級與平舖變數，確保 Agent 完全相容）
                 inputs = {
                     "document_type": document_type,
                     "target_import_country": target_import_country,
@@ -146,8 +211,6 @@ if st.button(f"🚀 開始生成【{document_type}】文件與風險評估報告
                     "place_of_production": place_of_production,
                     "port_of_discharge": port_of_discharge,
                     "topic": f"{document_type} for {product_name} ({output_language})",
-                    
-                    # Exporter 欄位
                     "exporter": {
                         "company_name": exporter_company_name,
                         "address": exporter_address,
@@ -159,10 +222,6 @@ if st.button(f"🚀 開始生成【{document_type}】文件與風險評估報告
                         "authorized_representative": exporter_auth_rep,
                         "authorized_rep_title": exporter_auth_rep_title
                     },
-                    "exporter_name": exporter_company_name,
-                    "exporter_address": exporter_address,
-                    
-                    # Importer 欄位
                     "importer": {
                         "company_name": importer_company_name,
                         "address": importer_address,
@@ -174,10 +233,6 @@ if st.button(f"🚀 開始生成【{document_type}】文件與風險評估報告
                         "authorized_representative": importer_auth_rep,
                         "authorized_rep_title": importer_auth_rep_title
                     },
-                    "importer_name": importer_company_name,
-                    "importer_address": importer_address,
-                    
-                    # Product Details 欄位
                     "product_details": {
                         "name": product_name,
                         "currency": currency,
@@ -189,13 +244,6 @@ if st.button(f"🚀 開始生成【{document_type}】文件與風險評估報告
                         "specifications": specifications,
                         "production_date": production_date
                     },
-                    "product_name": product_name,
-                    "quantity": quantity,
-                    "unit_price": unit_price,
-                    "currency": currency,
-                    "total_price": total_price,
-                    
-                    # Trade Terms 欄位
                     "trade_terms": {
                         "incoterm": incoterm,
                         "payment_method": payment_method,
@@ -208,13 +256,9 @@ if st.button(f"🚀 開始生成【{document_type}】文件與風險評估報告
                         "partial_shipment": partial_shipment,
                         "estimated_production_date": estimated_production_date,
                         "estimated_delivery_date": estimated_delivery_date
-                    },
-                    "incoterm": incoterm,
-                    "payment_method": payment_method,
-                    "governing_law": governing_law
+                    }
                 }
 
-                # 執行 CrewAI 流程
                 crew_instance = InternationalTradeLegalDocumentAutomation()
                 result = crew_instance.crew().kickoff(inputs=inputs)
                 result_text = str(result)
@@ -222,15 +266,46 @@ if st.button(f"🚀 開始生成【{document_type}】文件與風險評估報告
                 st.success(f"✨ 【{document_type}】文件與風險分析報告生成成功！")
                 
                 # 預覽區域
-                st.markdown("### 📄 文件內容與風險建議報告")
+                st.markdown("### 📄 文件內容與風險建議報告預覽")
                 st.markdown(result_text)
 
-                # 下載按鈕
-                st.download_button(
-                    label=f"📥 下載【{document_type}】完整中英文文件與報告 (.md)",
-                    data=result_text,
-                    file_name=f"{document_type.replace(' ', '_')}_bilingual_report.md",
-                    mime="text/markdown"
-                )
+                st.markdown("---")
+                st.markdown("### 📥 一鍵下載多格式文件")
+                
+                # 多列按鈕：下載 Markdown / Word (.docx) / PDF (.pdf)
+                d_col1, d_col2, d_col3 = st.columns(3)
+                
+                # 1. 下載 Markdown
+                with d_col1:
+                    st.download_button(
+                        label="📝 下載 Markdown (.md)",
+                        data=result_text,
+                        file_name=f"{document_type.replace(' ', '_')}_report.md",
+                        mime="text/markdown",
+                        use_container_width=True
+                    )
+                
+                # 2. 下載 Word (.docx)
+                with d_col2:
+                    word_file = create_word_docx(result_text)
+                    st.download_button(
+                        label="📄 下載 Word 檔 (.docx)",
+                        data=word_file,
+                        file_name=f"{document_type.replace(' ', '_')}_report.docx",
+                        mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                        use_container_width=True
+                    )
+                
+                # 3. 下載 PDF (.pdf)
+                with d_col3:
+                    pdf_file = create_pdf(result_text)
+                    st.download_button(
+                        label="📕 下載 PDF 檔 (.pdf)",
+                        data=pdf_file,
+                        file_name=f"{document_type.replace(' ', '_')}_report.pdf",
+                        mime="application/pdf",
+                        use_container_width=True
+                    )
+
             except Exception as e:
                 st.error(f"❌ 執行失敗：{str(e)}")
