@@ -1,7 +1,5 @@
 streamlit
 crewai
-litellm
-pydantic
-requests
+crewai-tools
 python-docx
 reportlab

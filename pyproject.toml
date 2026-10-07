@@ -26,3 +26,6 @@ project_id = "837da0b1-a2cc-4370-b188-5ff5a0d560ec"
 
 [tool.uv]
 override-dependencies = ["litellm<=1.82.6"]
+
+python-docx = "*"
+reportlab = "*"
