@@ -31,8 +31,8 @@ class InternationalTradeLegalDocumentAutomation:
 
         self.document_writer = Agent(
             role="國際貿易法律文件撰寫專家",
-            goal="根據用戶輸入的具體交易資訊，生成完全無佔位符、無 'REQUIRES COMPLETION'、可直接簽署的正式專業法律文件",
-            backstory="你是一位頂尖的國際商務律師，擅長撰寫精確、無漏洞且符合國際慣例（如 Incoterms 2020）的中英雙語商業合約與貿易文件。",
+            goal="根據用戶輸入的具體交易資訊，生成完全無佔位符、無 'REQUIRES COMPLETION'、可直接簽署的完整中英雙語專業法律文件",
+            backstory="你是一位頂尖的國際商務律師，擅長撰寫精確、無漏洞且符合國際慣例（如 Incoterms 2020）的全中英雙語對照商業合約與貿易文件。",
             verbose=True,
             allow_delegation=False,
             llm=llm
@@ -52,10 +52,10 @@ class InternationalTradeLegalDocumentAutomation:
             agent=self.legal_researcher
         )
 
-        # Task 2: 撰寫法律文件（強化絕對無佔位符與動態變數注入指令）
+        # Task 2: 撰寫全中英雙語法律文件
         write_document_task = Task(
             description=(
-                "請嚴格根據以下提供的【實際交易資料】與研究結果，撰寫一份極度專業、完整的雙語（英文為主、中文為輔）{document_type}：\n\n"
+                "請嚴格根據以下提供的【實際交易資料】與研究結果，撰寫一份極度專業、完整的【全中英雙語對照】{document_type}：\n\n"
                 "【合同基本資訊】\n"
                 "- 合同編號: {contract_no}\n"
                 "- 簽署日期: {contract_date}\n"
@@ -89,12 +89,13 @@ class InternationalTradeLegalDocumentAutomation:
                 "- 保固期: {warranty_period} | 準據法: {governing_law} | 爭議解決: {dispute_resolution}\n"
                 "- 分批裝運: {partial_shipment}\n\n"
                 "【鐵律指令 - 必須絕對執行】\n"
-                "1. 必須將上述所有實際資料精確寫入文件中，嚴禁輸出任何 '[Date]', '[Name]', '[Address]', 'REQUIRES COMPLETION' 或 '[REQUIRES COMPLETION]' 等中括號佔位符！\n"
-                "2. 若有未填寫的次要條款（如具體銀行 SWIFT 碼或細節號碼），請根據國際商業慣例直接補充合理的正式內容，絕不可以留空或標註需補充。\n"
-                "3. 結構必須包含：完整的合約標題、雙方主體資訊、條款（Parties, Goods, Price, Delivery, Payment, Warranty, Governing Law, Signatures）以及末尾附帶的《風險評估與建議報告 (Risk Advisory Report)》。\n"
-                "4. 格式必須使用標準 Markdown，包含 Markdown 表格（用於商品單價與總價對照）與粗體標題。"
+                "1. 【全中英雙語對照鐵律】：文件中每一個章節標題、所有條款內文、表格內容、雙方責任義務、聲明事項以及末尾的《風險評估與建議報告 (Risk Advisory Report)》，均必須採用【逐段/逐句的中英雙語對照】（英文在上，繁體中文在下，或段落並列）。絕不可只寫雙語標題而內文留為純英文！\n"
+                "2. 必須將上述所有實際資料精確寫入文件中，嚴禁輸出任何 '[Date]', '[Name]', '[Address]', 'REQUIRES COMPLETION' 或 '[REQUIRES COMPLETION]' 等佔位符！\n"
+                "3. 若有未填寫的次要條款（如具體銀行 SWIFT 碼或細節號碼），請根據國際商業慣例直接補充合理的正式內容，絕不可以留空。\n"
+                "4. 結構必須完整包含：雙語合約標題、雙方主體資訊、正式條款（Parties, Goods, Price, Delivery, Payment, Warranty, Governing Law, Signatures）以及末尾附帶的全雙語《風險評估與建議報告 (Risk Advisory Report)》。\n"
+                "5. 格式使用標準 Markdown，包含 Markdown 表格（用於商品單價與總價對照）與粗體標題。"
             ),
-            expected_output="一份內容完整、已填入所有實體資料、無任何佔位符、可直接簽署列印的完整中英雙語 Markdown 格式法律文件。",
+            expected_output="一份內容完整、已填入所有實體資料、無任何佔位符、內文全面實施中英雙語對照的可直接簽署 Markdown 格式法律文件。",
             agent=self.document_writer
         )
 
