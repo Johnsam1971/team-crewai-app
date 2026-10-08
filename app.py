@@ -17,14 +17,28 @@ st.set_page_config(
 st.title("⚖️ 國際貿易自動化文件與風險分析系統")
 st.markdown("填寫下方交易與合約資訊，AI Agent 團隊將為您自動生成**中英文專業貿易文件**及**風險評估建議報告**。")
 
-# 獲取 API Key
-openrouter_key = st.secrets.get("OPENROUTER_API_KEY") or os.getenv("OPENROUTER_API_KEY")
+# 獲取 API Key（優先讀取 secrets，其次讀取環境變數）
+openrouter_key = None
+try:
+    openrouter_key = st.secrets.get("OPENROUTER_API_KEY")
+except Exception:
+    pass
 
 if not openrouter_key:
-    st.warning("⚠️ 未檢測到 OPENROUTER_API_KEY，請於側邊欄輸入：")
-    openrouter_key = st.sidebar.text_input("輸入 OpenRouter API Key：", type="password")
+    openrouter_key = os.getenv("OPENROUTER_API_KEY")
 
-if openrouter_key:
+# 側邊欄輸入框
+with st.sidebar:
+    st.header("🔑 API 設定")
+    sidebar_key = st.text_input("輸入 OpenRouter API Key：", value=openrouter_key or "", type="password")
+    if sidebar_key:
+        openrouter_key = sidebar_key
+
+# 只有在完全沒有 API Key 時才顯示黃色警告框
+if not openrouter_key:
+    st.warning("⚠️ 未檢測到 OPENROUTER_API_KEY，請於側邊欄輸入後按 Enter 確認。")
+else:
+    # 成功取得 Key 後同步寫入環境變數
     os.environ["OPENROUTER_API_KEY"] = openrouter_key
     os.environ["OPENAI_API_KEY"] = openrouter_key
     os.environ["OPENAI_BASE_URL"] = "https://openrouter.ai/api/v1"
@@ -311,7 +325,7 @@ if st.button(f"🚀 開始生成【{document_type}】文件與風險評估報告
     else:
         with st.spinner(f"AI Agent 團隊正在處理【{document_type}】資料、進行條款風險分析，並起草中英文文件..."):
             try:
-                # 構建傳遞給 CrewAI 的完整 Inputs 字典（包含所有層級與平舖變數，確保 Agent 完全相容）
+                # 構建傳遞給 CrewAI 的完整 Inputs 字典
                 inputs = {
                     "document_type": document_type,
                     "target_import_country": target_import_country,
@@ -391,18 +405,26 @@ if st.button(f"🚀 開始生成【{document_type}】文件與風險評估報告
                 # 執行 CrewAI 流程
                 crew_instance = InternationalTradeLegalDocumentAutomation()
                 result = crew_instance.crew().kickoff(inputs=inputs)
-                result_text = str(result)
+
+                # 檢查並手動拼接所有 Task 的輸出
+                combined_outputs = []
+                if hasattr(result, 'tasks_output') and result.tasks_output:
+                    for task_out in result.tasks_output:
+                        combined_outputs.append(str(task_out.raw))
+                    result_text = "\n\n---\n\n".join(combined_outputs)
+                else:
+                    result_text = str(result)
 
                 st.success(f"✨ 【{document_type}】文件與風險分析報告生成成功！")
                 
-                # 預覽區域
-                st.markdown("### 📄 文件內容與風險建議報告")
-                st.markdown(result_text)
+                # 預覽區域：使用可拉動的 text_area 展示完整全文
+                st.markdown("### 📄 文件內容與風險建議報告預覽")
+                st.text_area("完整合約與報告內容", value=result_text, height=500)
 
-                # 下載按鈕
+                # 下載按鈕：確保傳入的 data 是完整的 UTF-8 編碼文本
                 st.download_button(
                     label=f"📥 下載【{document_type}】完整中英文文件與報告 (.md)",
-                    data=result_text,
+                    data=result_text.encode('utf-8'),
                     file_name=f"{document_type.replace(' ', '_')}_bilingual_report.md",
                     mime="text/markdown"
                 )
