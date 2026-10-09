@@ -19,90 +19,112 @@ llm = LLM(
 
 class InternationalTradeLegalDocumentAutomation:
     def __init__(self):
-        # 1. 定義 Agent
+        # Agent 1: 關務法規研究員
         self.legal_researcher = Agent(
-            role="國際貿易法規研究員",
-            goal="針對特定進出口國家、產品類別及 HS Code 檢索最新法規、條約與條款合規要求",
-            backstory="你是一位精通國際貿易法、海關法規與各國進出口標準的資深法律顧問。",
+            role="國際貿易法規與關務研究員",
+            goal="針對進出口國家、產品類別及 HS Code 檢索最新海關法規、貿易條約、關稅及合規要求",
+            backstory="你是一位精通國際貿易法、海關申報與國際進出口規管條款的資深法規顧問。",
             verbose=True,
             allow_delegation=False,
             llm=llm
         )
 
+        # Agent 2: 信用與誠信風險盡職調查專家 (新增)
+        self.credit_risk_assessor = Agent(
+            role="企業信用與誠信風險盡職調查專家",
+            goal="針對進口商 (買家) 及出口商之企業識別訊息進行公開數據搜查，完成獨立的信用度與誠信風險評估",
+            backstory="你是一位資深的國際商業徵信與合規審查專家，專門針對全球企業進行法律訴訟、監管違規、制裁名單篩查、破產清盤、海關違規、負面新聞、公司狀態及高管紀錄進行盡職調查與風險評級。",
+            verbose=True,
+            allow_delegation=False,
+            llm=llm
+        )
+
+        # Agent 3: 國際貿易法律文件與風險報告撰寫專家
         self.document_writer = Agent(
-            role="國際貿易法律文件撰寫專家",
-            goal="根據用戶輸入的具體交易資訊，生成完全無佔位符、無 'REQUIRES COMPLETION'、可直接簽署的完整中英雙語專業法律文件",
-            backstory="你是一位頂尖的國際商務律師，擅長撰寫精確、無漏洞且符合國際慣例（如 Incoterms 2020）的全中英雙語對照商業合約與貿易文件。",
+            role="國際貿易法律文件與風險報告撰寫專家",
+            goal="根據交易資訊、關務法規及信用風險評估結果，生成完全無佔位符、無 'REQUIRES COMPLETION'、包含三大核心部分的完整中英雙語專業法律文件",
+            backstory="你是一位頂尖的國際商務律師，擅長撰寫符合國際慣例（Incoterms 2020）且兼具風險提示與信用評估的全中英雙語商業合約與報告。",
             verbose=True,
             allow_delegation=False,
             llm=llm
         )
 
     def kickoff(self, inputs: dict) -> str:
-        # Task 1: 貿易合規研究
+        # Task 1: 關務法規搜查
         research_task = Task(
             description=(
-                "請針對以下貿易背景進行法律與合規分析：\n"
+                "請針對以下貿易背景進行海關法規與合規分析：\n"
                 "- 文件類型: {document_type}\n"
                 "- 目標進口國: {target_import_country} | HS Code: {hs_code}\n"
                 "- 生產地: {place_of_production} | 卸貨港: {port_of_discharge} | 貿易術語: {incoterm}\n"
-                "請摘要列出寫入該文件時必須包含的核心條款與合規注意事項。"
+                "請列出相關進出口海關申報注意事項、可能面臨的特別關稅/關稅率及主要合規條款。"
             ),
-            expected_output="一份包含該貿易行為核心合規要求與必備法律條款的清單摘要。",
+            expected_output="一份包含關務法規、HS Code 申報注意事項及海關合規條款的摘要報告。",
             agent=self.legal_researcher
         )
 
-        # Task 2: 撰寫全中英雙語法律文件
+        # Task 2: 進口商 (買家) 信用及誠信風險評估
+        credit_risk_task = Task(
+            description=(
+                "請針對【進口商 (買家)】及【出口商 (賣方)】進行獨立的企業信用與誠信風險盡職調查評估：\n\n"
+                "【進口商 (買家) 識別資料】\n"
+                "- 公司名稱: {importer_company_name}\n"
+                "- 註冊號碼: {importer_reg_no} | 稅號: {importer_tax_id}\n"
+                "- 公司地址: {importer_address}\n"
+                "- 聯絡電話: {importer_phone} | 電郵: {importer_email}\n"
+                "- 授權代表: {importer_auth_rep} ({importer_auth_rep_title})\n\n"
+                "【出口商 (賣方) 識別資料】\n"
+                "- 公司名稱: {exporter_company_name}\n"
+                "- 註冊號碼: {exporter_reg_no} | 稅號: {exporter_tax_id}\n"
+                "- 公司地址: {exporter_address}\n"
+                "- 授權代表: {exporter_auth_rep} ({exporter_auth_rep_title})\n\n"
+                "【評估類別 (針對以下 8 大範疇進行獨立分析與核實)】：\n"
+                "1. 🏛️ 法律訴訟紀錄（民事、刑事、商業爭議）\n"
+                "2. ⚖️ 監管違規紀錄（罰款、執法行動、牌照撤銷）\n"
+                "3. 🚨 制裁名單篩查（OFAC、EU、UN、HK、UK 制裁名單）\n"
+                "4. 💸 破產 / 清盤紀錄（無力償債、清盤/破產保護申請）\n"
+                "5. 🛃 海關違規紀錄（走私、出口管制違規、關稅逃避）\n"
+                "6. 📰 負面新聞（詐騙指控、付款違約、消費者投訴）\n"
+                "7. 🏢 公司註冊狀態（仍在運作 / 已解散 / 已被撤銷）\n"
+                "8. 👤 董事 / 高管不良紀錄（授權代表相關背景）\n\n"
+                "【風險評級制度】：\n"
+                "- ✅ LOW — 未發現負面紀錄\n"
+                "- ⚠️ MEDIUM — 有需要注意但非決定性的紀錄\n"
+                "- 🔴 HIGH — 存在重大風險紀錄\n"
+                "- ❓ INSUFFICIENT DATA — 搜查無結果或資料不足，建議獨立核實\n\n"
+                "【重要說明】：評估需完全基於公開資料。若搜查無結果或因公開檢索限制未能獲取即時數據，必須明確標示為 INSUFFICIENT DATA，並詳細列出簽約前的獨立核實建議與風險控制措施。"
+            ),
+            expected_output="一份包含出口商評估、進口商 8 大範疇獨立評估、綜合風險評級（LOW/MEDIUM/HIGH/INSUFFICIENT DATA）及建議行動的信用與誠信風險評估報告。",
+            agent=self.credit_risk_assessor
+        )
+
+        # Task 3: 起草並合併完整三合一法律文件
         write_document_task = Task(
             description=(
-                "請嚴格根據以下提供的【實際交易資料】與研究結果，撰寫一份極度專業、完整的【全中英雙語對照】{document_type}：\n\n"
-                "【合同基本資訊】\n"
-                "- 合同編號: {contract_no}\n"
-                "- 簽署日期: {contract_date}\n"
-                "- 生效日期: {effective_date}\n\n"
-                "【出口商 / 賣方】\n"
-                "- 公司名稱: {exporter_company_name}\n"
-                "- 地址: {exporter_address}\n"
-                "- 註冊號碼: {exporter_reg_no} | 稅號: {exporter_tax_id}\n"
-                "- 聯絡人: {exporter_contact_title} / {exporter_contact_name}\n"
-                "- 電話: {exporter_phone} | 電子郵件: {exporter_email}\n"
-                "- 授權代表: {exporter_auth_rep} ({exporter_auth_rep_title})\n\n"
-                "【進口商 / 買方】\n"
-                "- 公司名稱: {importer_company_name}\n"
-                "- 地址: {importer_address}\n"
-                "- 註冊號碼: {importer_reg_no} | 稅號: {importer_tax_id}\n"
-                "- 聯絡人: {importer_contact_title} / {importer_contact_name}\n"
-                "- 電話: {importer_phone} | 電子郵件: {importer_email}\n"
-                "- 授權代表: {importer_auth_rep} ({importer_auth_rep_title})\n\n"
-                "【商品與價格】\n"
-                "- 商品名稱: {product_name}\n"
-                "- 詳細描述: {product_description}\n"
-                "- 數量: {product_qty} | 單價: {unit_price} {currency} | 總價: {total_price} {currency}\n"
-                "- 產品規格: {product_specs}\n"
-                "- 包裝方式: {product_packaging}\n\n"
-                "【運輸與支付條件】\n"
-                "- 生產地: {place_of_production} | 卸貨港: {port_of_discharge}\n"
-                "- 預計生產日: {production_date} | 預計交貨日: {delivery_date}\n"
-                "- Incoterms: {incoterm} | 付款方式: {payment_method}\n"
-                "- 付款時機: {payment_timing}\n"
-                "- 銀行帳戶資料: {bank_details}\n"
-                "- 保固期: {warranty_period} | 準據法: {governing_law} | 爭議解決: {dispute_resolution}\n"
-                "- 分批裝運: {partial_shipment}\n\n"
-                "【鐵律指令 - 必須絕對執行】\n"
-                "1. 【全中英雙語對照鐵律】：文件中每一個章節標題、所有條款內文、表格內容、雙方責任義務、聲明事項以及末尾的《風險評估與建議報告 (Risk Advisory Report)》，均必須採用【逐段/逐句的中英雙語對照】（英文在上，繁體中文在下，或段落並列）。絕不可只寫雙語標題而內文留為純英文！\n"
-                "2. 必須將上述所有實際資料精確寫入文件中，嚴禁輸出任何 '[Date]', '[Name]', '[Address]', 'REQUIRES COMPLETION' 或 '[REQUIRES COMPLETION]' 等佔位符！\n"
-                "3. 若有未填寫的次要條款（如具體銀行 SWIFT 碼或細節號碼），請根據國際商業慣例直接補充合理的正式內容，絕不可以留空。\n"
-                "4. 結構必須完整包含：雙語合約標題、雙方主體資訊、正式條款（Parties, Goods, Price, Delivery, Payment, Warranty, Governing Law, Signatures）以及末尾附帶的全雙語《風險評估與建議報告 (Risk Advisory Report)》。\n"
-                "5. 格式使用標準 Markdown，包含 Markdown 表格（用於商品單價與總價對照）與粗體標題。"
+                "請嚴格根據表單輸入資料、關務研究與信用風險評估結果，起草並輸出【完整合併為一份】的最終法律文件。文件必須包含以下三個主要部分（全中英雙語逐段/逐句對照）：\n\n"
+                "【第一部分：合約 / 文件正文 [Contract / Main Document Body]】\n"
+                "- 包含雙方完整主體資料、商品描述、數量、單價、總價、Incoterms 2020、付款條件、銀行資料、保固期、準據法與爭議解決、簽署區。\n"
+                "- 嚴禁出現 '[Date]', '[Name]', '[Address]', 'REQUIRES COMPLETION' 或 '[REQUIRES COMPLETION]' 等任何佔位符！\n\n"
+                "【第二部分：=== RISK ADVISORY / 風險建議 ===】\n"
+                "- 針對付款與財務風險、海關與關稅風險、交付與物流風險、知識產權風險、法律管轄風險、監管合規風險、違規補救風險等進行詳細分析與具體緩解措施說明。\n\n"
+                "【第三部分：=== CREDIT & INTEGRITY RISK ASSESSMENT / 信用及誠信風險評估 ===】\n"
+                "- 結構包含：\n"
+                "  1. 出口商信用及誠信風險評估 (SECTION 1: EXPORTER CREDIT & INTEGRITY ASSESSMENT)\n"
+                "  2. 進口商信用及誠信風險評估 (SECTION 2: IMPORTER CREDIT & INTEGRITY ASSESSMENT)，針對 8 大類別（法律訴訟、監管違規、制裁名單、破產清盤、海關違規、負面新聞、公司註冊狀態、董事/高管紀錄）明確標示風險評級（如 INSUFFICIENT DATA 或相應級別）。\n"
+                "  3. 整體交易風險裁定 (SECTION 3: OVERALL TRANSACTION RISK VERDICT)，含綜合風險水平與主要風險標誌（Key Risk Flags）。\n"
+                "  4. 建議行動與簽約前盡職調查步驟 (Recommended Due Diligence Actions)。\n\n"
+                "【鐵律指令】：\n"
+                "1. 全文件（三大部分）每一個章節標題、條款內文、表格與報告內容均必須採取【全中英雙語對照】（英文在上，繁體中文在下）。\n"
+                "2. 格式使用標準 Markdown，包含 Markdown 表格與粗體標題。"
             ),
-            expected_output="一份內容完整、已填入所有實體資料、無任何佔位符、內文全面實施中英雙語對照的可直接簽署 Markdown 格式法律文件。",
+            expected_output="一份包含合約正文、風險建議報告及信用與誠信風險評估報告的三合一完整 Markdown 格式雙語法律文件。",
             agent=self.document_writer
         )
 
-        # 4. 組成 Crew 並執行
+        # 組成 Crew 執行
         crew = Crew(
-            agents=[self.legal_researcher, self.document_writer],
-            tasks=[research_task, write_document_task],
+            agents=[self.legal_researcher, self.credit_risk_assessor, self.document_writer],
+            tasks=[research_task, credit_risk_task, write_document_task],
             process=Process.sequential,
             verbose=True
         )

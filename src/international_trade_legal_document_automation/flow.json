@@ -46,12 +46,12 @@
             "contact_phone": {
               "type": "string",
               "default": "",
-              "description": "Contact phone with country code. Example: +86-755-12345678 | +852-21234567 | +1-213-5551234"
+              "description": "Contact phone with country code. Example: +86-755-12345678"
             },
             "contact_title": {
               "type": "string",
               "default": "",
-              "description": "Contact person title and full name. Example: Mr. John Smith | Ms. Mary Chan | Director David Wong"
+              "description": "Contact person title and full name. Example: Mr. John Smith | Ms. Mary Chan"
             },
             "authorized_rep_title": {
               "type": "string",
@@ -96,12 +96,12 @@
             "contact_phone": {
               "type": "string",
               "default": "",
-              "description": "Contact phone with country code. Example: +1-213-5559876 | +49-30-12345678 | +81-3-12345678"
+              "description": "Contact phone with country code. Example: +1-213-5559876"
             },
             "contact_title": {
               "type": "string",
               "default": "",
-              "description": "Contact person title and full name. Example: Mr. Robert Lee | Ms. Sarah Johnson | Manager Tom Brown"
+              "description": "Contact person title and full name. Example: Mr. Robert Lee | Ms. Sarah Johnson"
             },
             "authorized_rep_title": {
               "type": "string",
@@ -126,57 +126,57 @@
             "incoterm": {
               "type": "string",
               "default": "",
-              "description": "Incoterm rule, version and named place. Example: FOB Shenzhen Incoterms 2020 | CIF Los Angeles Incoterms 2020 | DAP Hamburg Incoterms 2020"
+              "description": "Incoterm rule, version and named place. Example: FOB Shenzhen Incoterms 2020 | CIF Los Angeles Incoterms 2020"
             },
             "inspection": {
               "type": "string",
               "default": "",
-              "description": "Inspection requirements, agency and timing. Example: SGS pre-shipment inspection at seller expense | Buyer inspection within 14 days of arrival | No third-party inspection required"
+              "description": "Inspection requirements, agency and timing. Example: SGS pre-shipment inspection at seller expense"
             },
             "bank_details": {
               "type": "string",
               "default": "",
-              "description": "Beneficiary bank name, account number, SWIFT code. Example: Bank of China, Shenzhen Branch; A/C: 1234567890; SWIFT: BKCHCNBJ | Leave blank if not yet determined"
+              "description": "Beneficiary bank name, account number, SWIFT code. Example: Bank of China; A/C: 1234567890; SWIFT: BKCHCNBJ"
             },
             "governing_law": {
               "type": "string",
               "default": "",
-              "description": "Governing law for the contract. Example: Laws of Hong Kong | Laws of England and Wales | Laws of Singapore | Laws of the People's Republic of China"
+              "description": "Governing law for the contract. Example: Laws of Hong Kong | Laws of England and Wales"
             },
             "payment_method": {
               "type": "string",
               "default": "",
-              "description": "Payment method and terms. Example: T/T 30% deposit, 70% before shipment | Irrevocable LC at sight | D/P 60 days | Open Account 30 days"
+              "description": "Payment method and terms. Example: T/T 30% deposit, 70% before shipment | Irrevocable LC at sight"
             },
             "payment_timing": {
               "type": "string",
               "default": "",
-              "description": "Payment schedule and due dates. Example: 30% deposit within 7 days of contract signing, 70% balance before shipment | Full payment by LC at sight"
+              "description": "Payment schedule and due dates. Example: 30% deposit within 7 days of contract signing, 70% balance before shipment"
             },
             "warranty_period": {
               "type": "string",
               "default": "",
-              "description": "Product warranty period. Example: 12 months from date of delivery | 2 years from date of manufacture | No warranty"
+              "description": "Product warranty period. Example: 12 months from date of delivery | 2 years from date of manufacture"
             },
             "partial_shipment": {
               "type": "string",
               "default": "",
-              "description": "Whether partial shipment and transshipment are permitted. Example: Partial shipment allowed, transshipment not allowed | Both allowed | Neither allowed"
+              "description": "Whether partial shipment and transshipment are permitted. Example: Partial shipment allowed, transshipment not allowed"
             },
             "dispute_resolution": {
               "type": "string",
               "default": "",
-              "description": "Dispute resolution method, institution and seat. Example: Arbitration under HKIAC Rules, seat Hong Kong | ICC Arbitration, seat Singapore | CIETAC Beijing"
+              "description": "Dispute resolution method, institution and seat. Example: Arbitration under HKIAC Rules, seat Hong Kong"
             },
             "estimated_delivery_date": {
               "type": "string",
               "default": "",
-              "description": "Estimated delivery or shipment date. Format: YYYY-MM-DD or YYYY-MM. Example: 2025-06-30 | 2025-07"
+              "description": "Estimated delivery or shipment date. Format: YYYY-MM-DD or YYYY-MM. Example: 2025-06-30"
             },
             "estimated_production_date": {
               "type": "string",
               "default": "",
-              "description": "Estimated production completion date. Format: YYYY-MM-DD or YYYY-MM. Example: 2025-05-31 | 2025-06"
+              "description": "Estimated production completion date. Format: YYYY-MM-DD or YYYY-MM. Example: 2025-05-31"
             }
           }
         },
@@ -192,12 +192,12 @@
             "Other"
           ],
           "type": "string",
-          "description": "Select the type of trade document to generate. Enter exactly one of: Sales Contract | Commercial Invoice | Packing List | Certificate of Origin | LC Application | Bill of Lading | Inspection Certificate | Other"
+          "description": "Select the type of trade document to generate."
         },
         "other_remarks": {
           "type": "string",
           "default": "",
-          "description": "Any other special terms, conditions or remarks. Example: Goods must be shipped in reefer containers; All documents must be in English and Chinese | Leave blank if none"
+          "description": "Any other special terms, conditions or remarks."
         },
         "product_details": {
           "type": "object",
@@ -205,7 +205,7 @@
             "name": {
               "type": "string",
               "default": "",
-              "description": "Full product name and model/type. Example: Wireless Bluetooth Headphones Model BT-500 | Wooden Office Chair Type A"
+              "description": "Full product name and model/type. Example: Wireless Bluetooth Headphones Model BT-500"
             },
             "currency": {
               "type": "string",
@@ -215,7 +215,7 @@
             "quantity": {
               "type": "string",
               "default": "",
-              "description": "Quantity and unit of measure. Example: 500 PCS | 1000 UNITS | 200 SETS | 50 CARTONS"
+              "description": "Quantity and unit of measure. Example: 500 PCS | 1000 UNITS | 200 SETS"
             },
             "packaging": {
               "type": "string",
@@ -225,27 +225,27 @@
             "unit_price": {
               "type": "string",
               "default": "",
-              "description": "Unit price (numbers only, currency stated separately). Example: 45.00 | 128.50 | 350.00"
+              "description": "Unit price (numbers only). Example: 45.00 | 128.50"
             },
             "description": {
               "type": "string",
               "default": "",
-              "description": "Detailed product description for customs and commercial documents. Example: Wireless stereo headphones with active noise cancellation, Bluetooth 5.0, rechargeable lithium battery"
+              "description": "Detailed product description for customs and commercial documents."
             },
             "total_price": {
               "type": "string",
               "default": "",
-              "description": "Total contract price (numbers only, currency stated separately). Example: 22500.00 | 64250.00 | 175000.00"
+              "description": "Total contract price (numbers only). Example: 22500.00 | 64250.00"
             },
             "specifications": {
               "type": "string",
               "default": "",
-              "description": "Technical specifications, materials, dimensions, grade. Example: Material: ABS plastic + aluminum; Weight: 280g; Battery: 500mAh; Color: Black"
+              "description": "Technical specifications, materials, dimensions, grade."
             },
             "production_date": {
               "type": "string",
               "default": "",
-              "description": "Estimated or actual production date. Format: YYYY-MM or YYYY-MM-DD. Example: 2025-03 | 2025-03-15"
+              "description": "Estimated or actual production date. Format: YYYY-MM or YYYY-MM-DD."
             }
           }
         },
@@ -256,11 +256,11 @@
         "product_category": {
           "type": "string",
           "default": "",
-          "description": "General product category for customs research. Examples: Electronics | Furniture | Apparel | Machinery | Food Products | Cosmetics | Medical Devices"
+          "description": "General product category for customs research. Examples: Electronics | Furniture | Apparel | Machinery"
         },
         "port_of_discharge": {
           "type": "string",
-          "description": "Port where goods will be unloaded at destination. Examples: Los Angeles | Hamburg | Yokohama | Rotterdam | Sydney | New York | Tokyo"
+          "description": "Port where goods will be unloaded at destination. Examples: Los Angeles | Hamburg | Yokohama"
         },
         "trademark_details": {
           "type": "object",
@@ -269,17 +269,17 @@
             "trademark_owner": {
               "type": "string",
               "default": "",
-              "description": "Full legal name of trademark owner. Example: ABC Brand Holdings Ltd. | Leave blank if not applicable"
+              "description": "Full legal name of trademark owner."
             },
             "trademark_usage_terms": {
               "type": "string",
               "default": "",
-              "description": "Permitted trademark usage scope, territory and duration. Example: Importer may use ABC trademark solely for resale in USA for duration of this contract | Leave blank if not applicable"
+              "description": "Permitted trademark usage scope, territory and duration."
             },
             "trademark_owner_contact": {
               "type": "string",
               "default": "",
-              "description": "Trademark owner contact details. Example: legal@abcbrand.com | +852-21234567 | Leave blank if not applicable"
+              "description": "Trademark owner contact details."
             }
           }
         },
@@ -289,16 +289,21 @@
         },
         "place_of_production": {
           "type": "string",
-          "description": "Country or city where goods are manufactured. Examples: CHINA | VIETNAM | TAIWAN | HONG KONG | THAILAND | MALAYSIA"
+          "description": "Country or city where goods are manufactured. Examples: CHINA | VIETNAM | TAIWAN | HONG KONG"
         },
         "target_import_country": {
           "type": "string",
-          "description": "Country where goods will be imported. Examples: United States | Germany | Japan | Australia | United Kingdom | France | Canada"
+          "description": "Country where goods will be imported. Examples: United States | Germany | Japan | Australia"
         },
         "additional_obligations": {
           "type": "string",
           "default": "",
-          "description": "Any specific additional obligations for either party beyond standard terms. Example: Seller to provide SGS certificate and CE certification; Buyer to obtain FDA import license | Leave blank if none"
+          "description": "Any specific additional obligations for either party beyond standard terms."
+        },
+        "credit_risk_assessment": {
+          "type": "string",
+          "default": "",
+          "description": "Credit and integrity risk assessment results for both parties, including litigation records, regulatory violations, financial disputes and trust rating."
         }
       }
     }
@@ -313,28 +318,28 @@
             {
               "name": "draft_packing",
               "agent": "packing_drafter",
-              "description": "Using the customs regulations research and reviewed transaction data, prepare a complete Packing List in both English and Traditional Chinese (bilingual format).\n\nPACKING LIST MANDATORY FIELDS:\n1. Packing list number and date\n2. Reference to corresponding Commercial Invoice number\n3. Seller (exporter) full name, address, registration number, tax ID, contact person title and name, phone, email, authorized representative name and title\n4. Buyer (importer) full name, address, registration number, tax ID, contact person title and name, phone, email, authorized representative name and title\n5. Country of origin / Place of production: {place_of_production}\n6. Country of destination\n7. Port of discharge: {port_of_discharge}\n8. HS Code\n9. Product name and goods description\n10. Package details: carton number, quantity per package, total quantity, net weight, gross weight, dimensions, total volume / CBM\n11. Type and material of packaging\n12. Marks and numbers on packages\n13. Total number of packages\n14. Total net weight and gross weight\n15. Incoterm and shipment details\n16. Authorized signature block (authorized representative name and title)\n\nDEFAULT VALUES \\ apply when the input is blank; insert directly, do NOT mark REQUIRES COMPLETION:\n- Packing list number: PL-[YYYYMMDD]-001 (use today's date)\n- Marks and numbers: if blank \\ N/M (No Marks)\n\nREQUIRES SUPPLIER INPUT \\ mark only these when not provided:\n- Net weight per carton, gross weight per carton, carton dimensions (if not in packaging field)\n- Total net weight, total gross weight, total CBM\n\nREQUIRES COMPLETION \\ mark only these when not provided:\n- Exporter / importer names, addresses, registration numbers, tax IDs, contact details, authorized representatives\n- Product name, description, quantity, HS Code, port of discharge, place of production\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Delivery Date: {delivery_date}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
-              "expected_output": "A complete, bilingual (English and Traditional Chinese) Packing List with all mandatory fields accurately completed. Apply stated defaults for blank fields. Only mark REQUIRES SUPPLIER INPUT for weight/dimension data not provided, and REQUIRES COMPLETION for genuinely missing commercial identifiers. Output the full packing list from title to signature block."
+              "description": "Using the customs regulations research, credit risk assessment, and reviewed transaction data, prepare a complete Packing List in both English and Traditional Chinese (bilingual format).\n\nPACKING LIST MANDATORY FIELDS:\n1. Packing list number and date\n2. Reference to corresponding Commercial Invoice number\n3. Seller (exporter) full name, address, registration number, tax ID, contact person title and name, phone, email, authorized representative name and title\n4. Buyer (importer) full name, address, registration number, tax ID, contact person title and name, phone, email, authorized representative name and title\n5. Country of origin / Place of production: {place_of_production}\n6. Country of destination\n7. Port of discharge: {port_of_discharge}\n8. HS Code\n9. Product name and goods description\n10. Package details: carton number, quantity per package, total quantity, net weight, gross weight, dimensions, total volume / CBM\n11. Type and material of packaging\n12. Marks and numbers on packages\n13. Total number of packages\n14. Total net weight and gross weight\n15. Incoterm and shipment details\n16. Authorized signature block\n\nDEFAULT VALUES: Packing list number: PL-[YYYYMMDD]-001; Marks and numbers if blank: N/M (No Marks)\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== CREDIT & INTEGRITY RISK ASSESSMENT ===\n{credit_risk_assessment}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Delivery Date: {delivery_date}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
+              "expected_output": "A complete, bilingual Packing List with all mandatory fields accurately completed. Apply stated defaults. Output the full packing list from title to signature block."
             },
             {
               "name": "packing_risk_advisory",
               "agent": "risk_advisor",
-              "description": "Based on the drafted Packing List above and the customs research, produce a focused risk-avoidance advisory covering:\n1. Weight and measurement accuracy risk\n2. Document inconsistency risk\n3. Packaging compliance risk\n4. Hazardous goods risk\n5. Customs inspection risk\n6. Labeling and marking risk\n\nFor each risk: description, potential consequence, and specific mitigation measure.",
-              "expected_output": "A structured risk advisory for the Packing List with sections for each risk category. Written in both English and Traditional Chinese."
+              "description": "Based on the drafted Packing List, customs research, and credit risk assessment, produce a focused risk-avoidance advisory covering: 1. Weight and measurement accuracy risk, 2. Document inconsistency risk, 3. Packaging compliance risk, 4. Hazardous goods risk, 5. Customs inspection risk, 6. Labeling and marking risk, 7. Counterparty credit risk (referencing assessment findings). For each risk: description, potential consequence, and specific mitigation measure.",
+              "expected_output": "A structured risk advisory for the Packing List covering all risk categories. Written in both English and Traditional Chinese."
             },
             {
               "name": "format_and_output",
               "agent": "formatter",
-              "description": "Combine the full Packing List body and the full Risk Advisory into one complete document.\n\nOutput the FULL Packing List first \\ every field from title to signature block, exactly as drafted. Do not summarize or shorten it. Then append: === RISK ADVISORY / \\\\ === Then output the FULL Risk Advisory \\ every section exactly as written. Preserve all bilingual content exactly.",
-              "expected_output": "The complete combined document: full Packing List then full Risk Advisory. No summaries or truncation. Full bilingual content preserved."
+              "description": "You have THREE inputs:\n1. The full Packing List body (from draft_packing task)\n2. The full Risk Advisory (from packing_risk_advisory task)\n3. The Credit & Integrity Risk Assessment passed in as input variable: {credit_risk_assessment}\n\nCombine all three into one complete document:\n1. Output the FULL Packing List first.\n2. Then append: === RISK ADVISORY / \\\\ ===\n3. Then output the FULL Risk Advisory.\n4. Then append: === CREDIT & INTEGRITY RISK ASSESSMENT / \\\\ ===\n5. Then output the FULL Credit & Integrity Risk Assessment from the {credit_risk_assessment} input variable exactly as provided. Do not summarize or shorten it.\n6. Preserve all bilingual content exactly.",
+              "expected_output": "The complete combined document: full Packing List, then full Risk Advisory, then full Credit & Integrity Risk Assessment. No summaries or truncation."
             }
           ],
           "agents": {
             "formatter": {
-              "goal": "Combine the Packing List body and Risk Advisory into one single complete plain-text document.",
+              "goal": "Combine the Packing List body, Risk Advisory, and Credit & Integrity Risk Assessment into one single complete plain-text document.",
               "role": "Document Formatting Specialist",
               "verbose": true,
-              "backstory": "You receive the full packing list and the full risk advisory. You combine them into one complete document with the packing list first, then the risk advisory. You never summarize, truncate, or omit any content. You output the full document text.",
+              "backstory": "You receive the full packing list, the full risk advisory, and the full credit risk assessment (passed as the {credit_risk_assessment} input variable). You combine them in that order. You never summarize, truncate, or omit any content.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
@@ -347,7 +352,7 @@
               "llm": "openai/gpt-5.6-luna"
             },
             "packing_drafter": {
-              "goal": "Prepare a complete, accurate Packing List that satisfies customs and logistics requirements. Apply stated default values for blank procedural fields \\ never mark a defaultable field as REQUIRES COMPLETION.",
+              "goal": "Prepare a complete, accurate Packing List that satisfies customs and logistics requirements. Apply stated default values for blank procedural fields.",
               "role": "International Trade Packing List Specialist",
               "verbose": true,
               "backstory": "You are a logistics and trade documentation specialist. You base every entry strictly on the data provided and apply stated defaults for blank fields. You mark REQUIRES SUPPLIER INPUT only for weight and dimension data not provided, and REQUIRES COMPLETION only for genuinely missing commercial identifiers.",
@@ -388,6 +393,7 @@
             "place_of_production": "${state.place_of_production}",
             "product_description": "${state.product_details.description}",
             "additional_obligations": "${state.additional_obligations}",
+            "credit_risk_assessment": "${outputs.assess_counterparty_credit_risk.raw}",
             "exporter_contact_title": "${state.exporter.contact_title}",
             "importer_contact_title": "${state.importer.contact_title}",
             "exporter_auth_rep_title": "${state.exporter.authorized_rep_title}",
@@ -399,7 +405,7 @@
       "start": false,
       "listen": "packing_list",
       "router": false,
-      "description": "起草完整的雙語裝箱清單，整合風險建議及格式化輸出。"
+      "description": "起草完整的雙語裝箱清單，整合信用風險評估、風險建議及格式化輸出。"
     },
     "route_document_type": {
       "do": {
@@ -437,36 +443,36 @@
             {
               "name": "draft_bl",
               "agent": "bl_drafter",
-              "description": "Using the customs regulations research and reviewed transaction data, prepare a complete Bill of Lading in both English and Traditional Chinese (bilingual format).\n\nBILL OF LADING MANDATORY FIELDS:\n1. B/L number and date of issue\n2. Shipper (exporter) full name, address, registration number, tax ID, authorized representative name and title\n3. Consignee full name, address, registration number, tax ID, authorized representative name and title\n4. Notify party full name and address\n5. Place of production / country of origin: {place_of_production}\n6. Ocean vessel name and voyage number\n7. Port of loading\n8. Port of discharge: {port_of_discharge}\n9. Place of delivery\n10. Container number(s) and seal number(s)\n11. Marks and numbers on packages\n12. Number and kind of packages\n13. Product name and description of goods\n14. HS Code\n15. Packaging details\n16. Gross weight and measurement (CBM)\n17. Freight and charges (prepaid or collect)\n18. Number of original B/L issued\n19. Incoterm and named place\n20. B/L type: straight / to order / bearer\n21. Carrier name and authorized signature (shipper authorized representative name and title)\n\nDEFAULT VALUES \\ apply when blank; insert directly, do NOT mark REQUIRES COMPLETION:\n- B/L number: BL-[YYYYMMDD]-001 (use today's date)\n- Marks and numbers: if blank \\ N/M (No Marks)\n- Number of originals: if blank \\ Three (3) originals\n- B/L type: if blank \\ To Order\n- Freight: if blank \\ Freight Prepaid (if FOB or similar exporter-paid incoterm) / Freight Collect (if CFR/CIF or similar)\n\nREQUIRES CARRIER INPUT \\ mark only these when not provided:\n- Ocean vessel name and voyage number\n- Container number(s) and seal number(s)\n- Carrier name\n- Actual gross weight and CBM (if not in packaging field)\n\nREQUIRES COMPLETION \\ mark only when not provided:\n- Exporter / importer names, addresses, registration numbers, tax IDs, authorized representatives\n- Product name, description, HS Code, port of discharge, place of production\n- Incoterm and named place\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Delivery Date: {delivery_date}\nPartial Shipment: {partial_shipment}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
-              "expected_output": "A complete, bilingual Bill of Lading with all mandatory fields accurately completed. Apply stated defaults for blank fields. Mark REQUIRES CARRIER INPUT only for carrier-specific data and REQUIRES COMPLETION only for genuinely missing commercial identifiers. Output the full bill of lading from title to signature block."
+              "description": "Using the customs regulations research, credit risk assessment, and reviewed transaction data, prepare a complete Bill of Lading in both English and Traditional Chinese (bilingual format).\n\nBILL OF LADING MANDATORY FIELDS:\n1. B/L number and date of issue\n2. Shipper (exporter) full name, address, registration number, tax ID, authorized representative name and title\n3. Consignee full name, address, registration number, tax ID, authorized representative name and title\n4. Notify party full name and address\n5. Place of production / country of origin: {place_of_production}\n6. Ocean vessel name and voyage number\n7. Port of loading\n8. Port of discharge: {port_of_discharge}\n9. Place of delivery\n10. Container number(s) and seal number(s)\n11. Marks and numbers on packages\n12. Number and kind of packages\n13. Product name and description of goods\n14. HS Code\n15. Packaging details\n16. Gross weight and measurement (CBM)\n17. Freight and charges\n18. Number of original B/L issued\n19. Incoterm and named place\n20. B/L type\n21. Carrier name and authorized signature\n\nDEFAULT VALUES: B/L number: BL-[YYYYMMDD]-001; Marks if blank: N/M; Number of originals if blank: Three (3); B/L type if blank: To Order; Freight if blank: Freight Prepaid (FOB) / Freight Collect (CFR/CIF)\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== CREDIT & INTEGRITY RISK ASSESSMENT ===\n{credit_risk_assessment}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Delivery Date: {delivery_date}\nPartial Shipment: {partial_shipment}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
+              "expected_output": "A complete, bilingual Bill of Lading with all mandatory fields accurately completed. Output the full bill of lading from title to signature block."
             },
             {
               "name": "bl_risk_advisory",
               "agent": "risk_advisor",
-              "description": "Based on the drafted Bill of Lading above and the customs research, produce a focused risk-avoidance advisory covering:\n1. Title and ownership risk\n2. Document inconsistency risk\n3. Freight and charges risk\n4. Cargo loss and damage risk\n5. Port congestion and demurrage risk\n6. Sanctions and prohibited cargo risk\n7. LC compliance risk\n\nFor each risk: description, potential consequence, and specific mitigation measure.",
-              "expected_output": "A structured risk advisory for the Bill of Lading with sections for each risk category. Written in both English and Traditional Chinese."
+              "description": "Based on the drafted Bill of Lading, customs research, and credit risk assessment, produce a focused risk-avoidance advisory covering: 1. Title and ownership risk, 2. Document inconsistency risk, 3. Freight and charges risk, 4. Cargo loss and damage risk, 5. Port congestion and demurrage risk, 6. Sanctions and prohibited cargo risk, 7. LC compliance risk, 8. Counterparty credit risk (referencing assessment findings). For each risk: description, potential consequence, and specific mitigation measure.",
+              "expected_output": "A structured risk advisory for the Bill of Lading. Written in both English and Traditional Chinese."
             },
             {
               "name": "format_and_output",
               "agent": "formatter",
-              "description": "Combine the full Bill of Lading body and the full Risk Advisory into one complete document.\n\nOutput the FULL Bill of Lading first, then append === RISK ADVISORY / \\ ===, then output the FULL Risk Advisory. Preserve all bilingual content exactly.",
-              "expected_output": "The complete combined document: full Bill of Lading then full Risk Advisory. No summaries or truncation."
+              "description": "You have THREE inputs:\n1. The full Bill of Lading body (from draft_bl task)\n2. The full Risk Advisory (from bl_risk_advisory task)\n3. The Credit & Integrity Risk Assessment passed in as input variable: {credit_risk_assessment}\n\nCombine all three into one complete document:\n1. Output the FULL Bill of Lading first.\n2. Then append: === RISK ADVISORY / \\\\ ===\n3. Then output the FULL Risk Advisory.\n4. Then append: === CREDIT & INTEGRITY RISK ASSESSMENT / \\\\ ===\n5. Then output the FULL Credit & Integrity Risk Assessment from the {credit_risk_assessment} input variable exactly as provided. Do not summarize or shorten it.\n6. Preserve all bilingual content exactly.",
+              "expected_output": "The complete combined document. No summaries or truncation."
             }
           ],
           "agents": {
             "formatter": {
-              "goal": "Combine the Bill of Lading body and Risk Advisory into one single complete plain-text document.",
+              "goal": "Combine the Bill of Lading body, Risk Advisory, and Credit & Integrity Risk Assessment into one single complete plain-text document.",
               "role": "Document Formatting Specialist",
               "verbose": true,
-              "backstory": "You receive the full bill of lading and the full risk advisory. You combine them into one complete document with the bill of lading first, then the risk advisory. You never summarize, truncate, or omit any content. You output the full document text.",
+              "backstory": "You receive the full bill of lading, the full risk advisory, and the full credit risk assessment (passed as the {credit_risk_assessment} input variable). You combine them in that order. You never summarize, truncate, or omit any content.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
             "bl_drafter": {
-              "goal": "Prepare a complete, accurate Bill of Lading that satisfies carrier, customs, and banking requirements. Apply stated default values for blank fields \\ never mark a defaultable field as REQUIRES COMPLETION.",
+              "goal": "Prepare a complete, accurate Bill of Lading that satisfies carrier, customs, and banking requirements. Apply stated default values for blank fields.",
               "role": "Bill of Lading Documentation Specialist",
               "verbose": true,
-              "backstory": "You are an international shipping and trade documentation specialist. You base every entry strictly on the data provided and apply stated defaults for blank fields. You mark REQUIRES CARRIER INPUT only for carrier-specific data not available before shipment, and REQUIRES COMPLETION only for genuinely missing commercial identifiers.",
+              "backstory": "You are an international shipping and trade documentation specialist. You base every entry strictly on the data provided and apply stated defaults for blank fields.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
@@ -513,6 +519,7 @@
             "place_of_production": "${state.place_of_production}",
             "product_description": "${state.product_details.description}",
             "additional_obligations": "${state.additional_obligations}",
+            "credit_risk_assessment": "${outputs.assess_counterparty_credit_risk.raw}",
             "exporter_contact_title": "${state.exporter.contact_title}",
             "importer_contact_title": "${state.importer.contact_title}",
             "exporter_auth_rep_title": "${state.exporter.authorized_rep_title}",
@@ -524,7 +531,7 @@
       "start": false,
       "listen": "bill_of_lading",
       "router": false,
-      "description": "起草完整的雙語提單，整合風險建議及格式化輸出。"
+      "description": "起草完整的雙語提單，整合信用風險評估、風險建議及格式化輸出。"
     },
     "draft_lc_application": {
       "do": {
@@ -534,36 +541,36 @@
             {
               "name": "draft_lc",
               "agent": "lc_drafter",
-              "description": "Using the customs regulations research and reviewed transaction data, prepare a complete Letter of Credit Application in both English and Traditional Chinese (bilingual format).\n\nLC APPLICATION MANDATORY FIELDS:\n1. Application date and LC reference number\n2. Applicant (importer) full name, address, registration number, tax ID, authorized representative name and title\n3. Beneficiary (exporter) full name, address, registration number, tax ID, and bank details\n4. Issuing bank and advising bank\n5. LC type: irrevocable / confirmed / transferable / revolving\n6. LC amount and currency\n7. Tolerance percentage\n8. Availability and tenor\n9. Partial shipments and transhipment permissions: {partial_shipment}\n10. Port of loading and port of discharge: {port_of_discharge}\n11. Place of production / country of origin: {place_of_production}\n12. Latest shipment date and expiry date\n13. Description of goods and product name\n14. HS Code, quantity and unit price\n15. Incoterm and named place\n16. Payment method and payment timing\n17. Bank details of beneficiary\n18. Required documents list\n19. Special conditions\n20. Governing rules: UCP 600\n21. Applicant authorized representative signature and bank authorization block\n\nDEFAULT VALUES \\ apply when blank; insert directly, do NOT mark REQUIRES COMPLETION:\n- LC reference number: LC-[YYYYMMDD]-001 (use today's date)\n- LC type: if blank \\ Irrevocable Documentary Letter of Credit\n- Tolerance: if blank \\ +/- 5%\n- Governing rules: UCP 600\n- Partial shipment: if blank \\ Not Permitted\n- Transshipment: if blank \\ Not Permitted\n- Required documents: Commercial Invoice (3 originals), Packing List (3 originals), Full set of clean on-board Bills of Lading made out to order and blank endorsed, Certificate of Origin (1 original)\n\nREQUIRES APPLICANT INPUT \\ mark only these when not provided:\n- Issuing bank name and address\n- Applicant account number\n- Advising bank\n- Latest shipment date, expiry date and place\n\nREQUIRES COMPLETION \\ mark only when not provided:\n- Exporter / importer names, addresses, registration numbers, tax IDs, authorized representatives\n- Product name, description, quantity, unit price, total price, currency\n- HS Code, Incoterm and named place, port of discharge, place of production\n- Bank details of beneficiary\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Payment Method: {payment_method} | Payment Timing: {payment_timing} | Bank Details: {bank_details}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nPartial Shipment: {partial_shipment}\nProduction Date: {production_date} | Delivery Date: {delivery_date}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
-              "expected_output": "A complete, bilingual LC Application governed by UCP 600 with all mandatory fields completed. Apply stated defaults for blank fields. Mark REQUIRES APPLICANT INPUT only for bank-specific data, and REQUIRES COMPLETION only for genuinely missing commercial data. Output the full LC application from title to authorization block."
+              "description": "Using the customs regulations research, credit risk assessment, and reviewed transaction data, prepare a complete Letter of Credit Application in both English and Traditional Chinese (bilingual format).\n\nLC APPLICATION MANDATORY FIELDS:\n1. Application date and LC reference number\n2. Applicant (importer) full name, address, registration number, tax ID, authorized representative name and title\n3. Beneficiary (exporter) full name, address, registration number, tax ID, and bank details\n4. Issuing bank and advising bank\n5. LC type\n6. LC amount and currency\n7. Tolerance percentage\n8. Availability and tenor\n9. Partial shipments and transhipment permissions: {partial_shipment}\n10. Port of loading and port of discharge: {port_of_discharge}\n11. Place of production: {place_of_production}\n12. Latest shipment date and expiry date\n13. Description of goods and product name\n14. HS Code, quantity and unit price\n15. Incoterm and named place\n16. Payment method and payment timing\n17. Bank details of beneficiary\n18. Required documents list\n19. Special conditions\n20. Governing rules: UCP 600\n21. Applicant authorized representative signature and bank authorization block\n\nDEFAULT VALUES: LC reference: LC-[YYYYMMDD]-001; LC type if blank: Irrevocable Documentary LC; Tolerance if blank: +/- 5%; Governing rules: UCP 600; Partial shipment if blank: Not Permitted; Required documents if blank: Commercial Invoice (3 originals), Packing List (3 originals), Full set clean on-board Bills of Lading, Certificate of Origin (1 original)\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== CREDIT & INTEGRITY RISK ASSESSMENT ===\n{credit_risk_assessment}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Payment Method: {payment_method} | Payment Timing: {payment_timing} | Bank Details: {bank_details}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nPartial Shipment: {partial_shipment}\nProduction Date: {production_date} | Delivery Date: {delivery_date}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
+              "expected_output": "A complete, bilingual LC Application governed by UCP 600. Output the full LC application from title to authorization block."
             },
             {
               "name": "lc_risk_advisory",
               "agent": "risk_advisor",
-              "description": "Based on the drafted LC Application above and the customs research, produce a focused risk-avoidance advisory covering:\n1. Documentary discrepancy risk\n2. Payment default risk\n3. Fraud and forgery risk\n4. Issuing bank credit risk\n5. Currency and exchange rate risk\n6. Late shipment / expiry risk\n7. Regulatory and sanctions risk\n\nFor each risk: description, potential consequence, and specific mitigation measure.",
-              "expected_output": "A structured risk advisory for the LC Application with sections for each risk category. Written in both English and Traditional Chinese."
+              "description": "Based on the drafted LC Application, customs research, and credit risk assessment, produce a focused risk-avoidance advisory covering: 1. Documentary discrepancy risk, 2. Payment default risk (referencing credit assessment), 3. Fraud and forgery risk, 4. Issuing bank credit risk, 5. Currency and exchange rate risk, 6. Late shipment / expiry risk, 7. Regulatory and sanctions risk. For each risk: description, potential consequence, and specific mitigation measure.",
+              "expected_output": "A structured risk advisory for the LC Application. Written in both English and Traditional Chinese."
             },
             {
               "name": "format_and_output",
               "agent": "formatter",
-              "description": "Combine the full LC Application body and the full Risk Advisory into one complete document.\n\nOutput the FULL LC Application first, then append === RISK ADVISORY / \\ ===, then output the FULL Risk Advisory. Preserve all bilingual content exactly.",
-              "expected_output": "The complete combined document: full LC Application then full Risk Advisory. No summaries or truncation."
+              "description": "You have THREE inputs:\n1. The full LC Application body (from draft_lc task)\n2. The full Risk Advisory (from lc_risk_advisory task)\n3. The Credit & Integrity Risk Assessment passed in as input variable: {credit_risk_assessment}\n\nCombine all three into one complete document:\n1. Output the FULL LC Application first.\n2. Then append: === RISK ADVISORY / \\\\ ===\n3. Then output the FULL Risk Advisory.\n4. Then append: === CREDIT & INTEGRITY RISK ASSESSMENT / \\\\ ===\n5. Then output the FULL Credit & Integrity Risk Assessment from the {credit_risk_assessment} input variable exactly as provided. Do not summarize or shorten it.\n6. Preserve all bilingual content exactly.",
+              "expected_output": "The complete combined document. No summaries or truncation."
             }
           ],
           "agents": {
             "formatter": {
-              "goal": "Combine the LC Application body and Risk Advisory into one single complete plain-text document.",
+              "goal": "Combine the LC Application body, Risk Advisory, and Credit & Integrity Risk Assessment into one single complete plain-text document.",
               "role": "Document Formatting Specialist",
               "verbose": true,
-              "backstory": "You receive the full LC application and the full risk advisory. You combine them into one complete document with the LC application first, then the risk advisory. You never summarize, truncate, or omit any content. You output the full document text.",
+              "backstory": "You receive the full LC application, the full risk advisory, and the full credit risk assessment (passed as the {credit_risk_assessment} input variable). You combine them in that order. You never summarize, truncate, or omit any content.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
             "lc_drafter": {
-              "goal": "Prepare a complete, bank-compliant Letter of Credit Application that accurately reflects all transaction data and satisfies UCP 600 requirements. Apply stated default values for blank fields \\ never mark a defaultable field as REQUIRES COMPLETION.",
+              "goal": "Prepare a complete, bank-compliant Letter of Credit Application that accurately reflects all transaction data and satisfies UCP 600 requirements. Apply stated default values for blank fields.",
               "role": "Letter of Credit Application Specialist",
               "verbose": true,
-              "backstory": "You are a specialist in trade finance documentation with deep expertise in Letters of Credit under UCP 600 and ISBP 745. You base every entry strictly on the data provided and apply stated defaults for blank procedural fields. You mark REQUIRES APPLICANT INPUT only for bank-specific data not provided, and REQUIRES COMPLETION only for genuinely missing commercial data.",
+              "backstory": "You are a specialist in trade finance documentation with deep expertise in Letters of Credit under UCP 600 and ISBP 745. You base every entry strictly on the data provided and apply stated defaults for blank procedural fields.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
@@ -612,6 +619,7 @@
             "place_of_production": "${state.place_of_production}",
             "product_description": "${state.product_details.description}",
             "additional_obligations": "${state.additional_obligations}",
+            "credit_risk_assessment": "${outputs.assess_counterparty_credit_risk.raw}",
             "exporter_contact_title": "${state.exporter.contact_title}",
             "importer_contact_title": "${state.importer.contact_title}",
             "exporter_auth_rep_title": "${state.exporter.authorized_rep_title}",
@@ -623,7 +631,7 @@
       "start": false,
       "listen": "lc_application",
       "router": false,
-      "description": "起草完整的雙語信用狀申請書，整合風險建議及格式化輸出。"
+      "description": "起草完整的雙語信用狀申請書，整合信用風險評估、風險建議及格式化輸出。"
     },
     "draft_other_document": {
       "do": {
@@ -633,33 +641,33 @@
             {
               "name": "draft_document",
               "agent": "legal_drafter",
-              "description": "Using the customs regulations research and reviewed transaction data, draft a complete {document_type} in both English and Traditional Chinese (bilingual format).\n\nSelect and apply all clauses and sections appropriate for a {document_type}, including:\n- Full party identification: company name, full address, registration number, tax ID, contact person title and name, phone, email, authorized representative name and title\n- Product name, specifications, quantity, and pricing\n- HS Code and goods classification\n- Place of production: {place_of_production}\n- Port of discharge: {port_of_discharge}\n- Incoterm and delivery terms\n- Payment terms, method, payment timing, and bank details\n- Trademark ownership clause (if applicable)\n- Additional obligations of each party\n- Governing law and dispute resolution\n- Warranty period (if applicable)\n- Partial shipment terms (if applicable)\n- Inspection requirements (if applicable)\n- Signature and execution block (authorized representative name and title)\n- All clauses required by customs regulations\n- Any other remarks\n\nDEFAULT VALUES \\ apply when blank; insert directly, do NOT mark REQUIRES COMPLETION:\n- Warranty period: if blank \\ 12 months from date of delivery\n- Inspection / claim period: if blank \\ 14 calendar days after receipt\n- Cure period: if blank \\ 30 calendar days after written notice\n- Force majeure trigger: if blank \\ 90 consecutive days\n- Record retention: if blank \\ 5 years after relevant shipment\n- Arbitration language: if blank \\ English\n- Controlling language: if blank \\ English\n- Monetary liability cap: if blank \\ total contract price\n\nREQUIRES COMPLETION \\ mark only when not provided:\n- Party names, addresses, registration numbers, tax IDs, contact details, authorized representatives\n- Product name, description, quantity, prices, currency, HS Code\n- Incoterm and named place, port of discharge, place of production, delivery date\n- Payment method, timing, bank details (when applicable)\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Payment Method: {payment_method} | Payment Timing: {payment_timing} | Bank Details: {bank_details}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nProduction Date: {production_date} | Delivery Date: {delivery_date}\nWarranty: {warranty_period} | Partial Shipment: {partial_shipment} | Inspection: {inspection} | Governing Law: {governing_law} | Dispute Resolution: {dispute_resolution}\nTrademark Owner: {trademark_owner} | Trademark Owner Contact: {trademark_owner_contact} | Usage Terms: {trademark_usage}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
-              "expected_output": "A complete, bilingual {document_type} with all required clauses properly structured. Every provided field must be populated. Apply stated defaults for blank legal/procedural fields. Only mark REQUIRES COMPLETION for genuinely missing commercial data. Output the full document from title to signature block."
+              "description": "Using the customs regulations research, credit risk assessment, and reviewed transaction data, draft a complete {document_type} in both English and Traditional Chinese (bilingual format).\n\nSelect and apply all clauses and sections appropriate for a {document_type}, including full party identification, product details, HS Code, place of production: {place_of_production}, port of discharge: {port_of_discharge}, incoterm, payment terms, trademark clause, additional obligations, governing law, dispute resolution, warranty, inspection, signature block, all customs-required clauses, and other remarks.\n\nDEFAULT VALUES: Warranty: 12 months from delivery; Inspection period: 14 days; Cure period: 30 days; Force majeure: 90 days; Record retention: 5 years; Arbitration language: English; Controlling language: English; Monetary liability cap: total contract price\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== CREDIT & INTEGRITY RISK ASSESSMENT ===\n{credit_risk_assessment}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Payment Method: {payment_method} | Payment Timing: {payment_timing} | Bank Details: {bank_details}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nProduction Date: {production_date} | Delivery Date: {delivery_date}\nWarranty: {warranty_period} | Partial Shipment: {partial_shipment} | Inspection: {inspection} | Governing Law: {governing_law} | Dispute Resolution: {dispute_resolution}\nTrademark Owner: {trademark_owner} | Trademark Owner Contact: {trademark_owner_contact} | Usage Terms: {trademark_usage}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
+              "expected_output": "A complete, bilingual {document_type} with all required clauses properly structured. Apply stated defaults for blank legal/procedural fields. Output the full document from title to signature block."
             },
             {
               "name": "risk_advisory",
               "agent": "risk_advisor",
-              "description": "Based on the drafted {document_type} above and the customs research, produce a detailed risk-avoidance advisory covering:\n1. Payment and financial risk\n2. Customs and tariff risk\n3. Delivery and logistics risk\n4. IP and trademark risk (if applicable)\n5. Legal jurisdiction risk\n6. Regulatory compliance risk\n\nFor each risk: description, potential consequence, and specific mitigation measure.",
-              "expected_output": "A structured risk advisory report tailored to the {document_type} with sections for each risk category. Written in both English and Traditional Chinese."
+              "description": "Based on the drafted {document_type}, customs research, and credit risk assessment, produce a detailed risk-avoidance advisory covering: 1. Payment and financial risk (referencing credit assessment), 2. Customs and tariff risk, 3. Delivery and logistics risk, 4. IP and trademark risk, 5. Legal jurisdiction risk, 6. Regulatory compliance risk. For each risk: description, potential consequence, and specific mitigation measure.",
+              "expected_output": "A structured risk advisory report tailored to the {document_type}. Written in both English and Traditional Chinese."
             },
             {
               "name": "format_and_output",
               "agent": "formatter",
-              "description": "Combine the full trade document body and the full Risk Advisory into one complete document.\n\nOutput the FULL trade document first, then append === RISK ADVISORY / \\ ===, then output the FULL Risk Advisory. Preserve all bilingual content exactly.",
-              "expected_output": "The complete combined document: full trade document then full Risk Advisory. No summaries or truncation."
+              "description": "You have THREE inputs:\n1. The full trade document body (from draft_document task)\n2. The full Risk Advisory (from risk_advisory task)\n3. The Credit & Integrity Risk Assessment passed in as input variable: {credit_risk_assessment}\n\nCombine all three into one complete document:\n1. Output the FULL trade document first.\n2. Then append: === RISK ADVISORY / \\\\ ===\n3. Then output the FULL Risk Advisory.\n4. Then append: === CREDIT & INTEGRITY RISK ASSESSMENT / \\\\ ===\n5. Then output the FULL Credit & Integrity Risk Assessment from the {credit_risk_assessment} input variable exactly as provided. Do not summarize or shorten it.\n6. Preserve all bilingual content exactly.",
+              "expected_output": "The complete combined document. No summaries or truncation."
             }
           ],
           "agents": {
             "formatter": {
-              "goal": "Combine the trade document body and Risk Advisory into one single complete plain-text document.",
+              "goal": "Combine the trade document body, Risk Advisory, and Credit & Integrity Risk Assessment into one single complete plain-text document.",
               "role": "Document Formatting Specialist",
               "verbose": true,
-              "backstory": "You receive the full trade document body and the full risk advisory. You combine them into one complete document with the trade document first, then the risk advisory. You never summarize, truncate, or omit any content. You output the full document text.",
+              "backstory": "You receive the full trade document body, the full risk advisory, and the full credit risk assessment (passed as the {credit_risk_assessment} input variable). You combine them in that order. You never summarize, truncate, or omit any content.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
             "risk_advisor": {
-              "goal": "Analyze the drafted {document_type} and produce a detailed risk-avoidance advisory.",
+              "goal": "Analyze the drafted document and produce a detailed risk-avoidance advisory.",
               "role": "Trade Risk and Compliance Advisor",
               "verbose": true,
               "backstory": "You are a trade compliance expert specializing in cross-border risk management. You only advise based on the actual document and research provided. Never advise based on assumed facts.",
@@ -667,10 +675,10 @@
               "llm": "openai/gpt-5.6-luna"
             },
             "legal_drafter": {
-              "goal": "Draft a complete, legally sound {document_type} incorporating all transaction data and applicable customs regulations. Apply stated default values for blank legal/procedural fields \\ never mark a defaultable field as REQUIRES COMPLETION.",
+              "goal": "Draft a complete, legally sound {document_type} incorporating all transaction data and applicable customs regulations. Apply stated default values for blank legal/procedural fields.",
               "role": "International Trade Legal Document Drafter",
               "verbose": true,
-              "backstory": "You are a senior international trade attorney with 20+ years of experience. You select the correct clauses and structure for the specific document type requested. You base every commercial clause strictly on the data provided and apply stated defaults for blank legal/procedural fields. You never invent commercial data. If any required commercial field is missing, mark it clearly as REQUIRES COMPLETION rather than inventing a value.",
+              "backstory": "You are a senior international trade attorney with 20+ years of experience. You select the correct clauses and structure for the specific document type requested. You base every commercial clause strictly on the data provided and apply stated defaults for blank legal/procedural fields.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             }
@@ -719,6 +727,7 @@
             "place_of_production": "${state.place_of_production}",
             "product_description": "${state.product_details.description}",
             "additional_obligations": "${state.additional_obligations}",
+            "credit_risk_assessment": "${outputs.assess_counterparty_credit_risk.raw}",
             "exporter_contact_title": "${state.exporter.contact_title}",
             "importer_contact_title": "${state.importer.contact_title}",
             "exporter_auth_rep_title": "${state.exporter.authorized_rep_title}",
@@ -731,7 +740,7 @@
       "start": false,
       "listen": "other_document",
       "router": false,
-      "description": "處理其他類型貿易文件，整合風險建議及格式化輸出。"
+      "description": "處理其他類型貿易文件，整合信用風險評估、風險建議及格式化輸出。"
     },
     "draft_sales_contract": {
       "do": {
@@ -741,28 +750,28 @@
             {
               "name": "draft_contract",
               "agent": "legal_drafter",
-              "description": "Using the customs regulations research and reviewed transaction data, draft a complete Sales Contract (國際銷售合約) in both English and Traditional Chinese (bilingual format).\n\nSALES CONTRACT MANDATORY CLAUSES:\n1. Full party identification and contact details (exporter and importer): company name, full address, registration number, tax ID, contact person title and name, phone, email, authorized representative name and title\n2. Product specifications, quantity, unit price / total price with currency\n3. HS Code and goods classification\n4. Place of production: {place_of_production}\n5. Incoterm clause with precise risk and cost transfer point\n6. Port of discharge: {port_of_discharge}\n7. Payment terms and method\n8. Inspection and acceptance clause\n9. Warranty and quality guarantee clause\n10. Trademark ownership and licensing clause\n11. Force majeure clause\n12. Governing law and dispute resolution\n13. Termination and remedies clause\n14. Additional obligations of each party\n15. Signature and execution block\n16. All clauses required by customs regulations in the research\n17. Any other remarks\n\nDEFAULT VALUES — apply these when the corresponding input is blank or not provided. Do NOT mark these as REQUIRES COMPLETION; insert the default value directly into the contract:\n- Warranty period: if blank → 12 months from date of delivery\n- Inspection / claim period for visible defects: if blank → 14 calendar days after receipt\n- Latent defect notification period: if blank → 6 months after discovery\n- Cure period for material breach: if blank → 30 calendar days after written notice\n- Cure period for payment default: if blank → 7 calendar days after written notice\n- Force majeure termination trigger: if blank → 90 consecutive days\n- Record retention period: if blank → 5 years after relevant shipment\n- Number of arbitrators: if blank → 1 arbitrator for disputes under USD 500,000; 3 arbitrators for disputes of USD 500,000 or above\n- Language of arbitration: if blank → English\n- Controlling language of the bilingual contract: if blank → English\n- CISG: if blank → expressly excluded\n- Monetary liability cap: if blank → total contract price\n- Negotiation period before arbitration: if blank → 30 calendar days after written notice of dispute\n\nREQUIRES COMPLETION — mark only these when not provided (they cannot be defaulted):\n- Exporter / importer legal name, address, registration number, tax ID, contact details, authorized representative name and title\n- Product name, description, specifications\n- Quantity and unit of measure\n- Unit price, total price, currency\n- HS Code\n- Incoterm and named place or port\n- Port of discharge\n- Place of production\n- Production date and delivery date\n- Payment method, payment timing, bank details\n- Trademark owner name, contact, and usage terms (if applicable)\n- Manufacturer name and address (if different from exporter)\n- Any additional obligations\n- Other remarks\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Payment Method: {payment_method} | Payment Timing: {payment_timing} | Bank Details: {bank_details}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nProduction Date: {production_date} | Delivery Date: {delivery_date}\nWarranty: {warranty_period} | Partial Shipment: {partial_shipment} | Inspection: {inspection} | Governing Law: {governing_law} | Dispute Resolution: {dispute_resolution}\nTrademark Owner: {trademark_owner} | Trademark Owner Contact: {trademark_owner_contact} | Usage Terms: {trademark_usage}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
-              "expected_output": "A complete, bilingual (English and Traditional Chinese) Sales Contract with all required clauses properly structured for international trade and customs compliance. Every provided field must be populated from the supplied data. Legal/procedural fields not provided must use the stated defaults — never mark a defaultable field as REQUIRES COMPLETION. Only genuinely missing commercial data (names, addresses, prices, HS code, incoterm, port, dates, bank details) may be marked REQUIRES COMPLETION. Output the full contract text from title to signature block."
+              "description": "Using the customs regulations research, credit risk assessment, and reviewed transaction data, draft a complete Sales Contract (國際銷售合約) in both English and Traditional Chinese (bilingual format).\n\nSALES CONTRACT MANDATORY CLAUSES:\n1. Full party identification and contact details (exporter and importer): company name, full address, registration number, tax ID, contact person title and name, phone, email, authorized representative name and title\n2. Product specifications, quantity, unit price / total price with currency\n3. HS Code and goods classification\n4. Place of production: {place_of_production}\n5. Incoterm clause with precise risk and cost transfer point\n6. Port of discharge: {port_of_discharge}\n7. Payment terms and method\n8. Inspection and acceptance clause\n9. Warranty and quality guarantee clause\n10. Trademark ownership and licensing clause\n11. Force majeure clause\n12. Governing law and dispute resolution\n13. Termination and remedies clause\n14. Additional obligations of each party\n15. Signature and execution block\n16. All clauses required by customs regulations in the research\n17. Any other remarks\n\nDEFAULT VALUES — apply these when the corresponding input is blank or not provided:\n- Warranty period: if blank → 12 months from date of delivery\n- Inspection / claim period for visible defects: if blank → 14 calendar days after receipt\n- Latent defect notification period: if blank → 6 months after discovery\n- Cure period for material breach: if blank → 30 calendar days after written notice\n- Cure period for payment default: if blank → 7 calendar days after written notice\n- Force majeure termination trigger: if blank → 90 consecutive days\n- Record retention period: if blank → 5 years after relevant shipment\n- Number of arbitrators: if blank → 1 arbitrator for disputes under USD 500,000; 3 arbitrators for disputes of USD 500,000 or above\n- Language of arbitration: if blank → English\n- Controlling language of the bilingual contract: if blank → English\n- CISG: if blank → expressly excluded\n- Monetary liability cap: if blank → total contract price\n- Negotiation period before arbitration: if blank → 30 calendar days after written notice of dispute\n\nREQUIRES COMPLETION — mark only these when not provided:\n- Exporter / importer legal name, address, registration number, tax ID, contact details, authorized representative name and title\n- Product name, description, specifications\n- Quantity and unit of measure\n- Unit price, total price, currency\n- HS Code\n- Incoterm and named place or port\n- Port of discharge\n- Place of production\n- Production date and delivery date\n- Payment method, payment timing, bank details\n- Trademark owner name, contact, and usage terms (if applicable)\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== CREDIT & INTEGRITY RISK ASSESSMENT ===\n{credit_risk_assessment}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Payment Method: {payment_method} | Payment Timing: {payment_timing} | Bank Details: {bank_details}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nProduction Date: {production_date} | Delivery Date: {delivery_date}\nWarranty: {warranty_period} | Partial Shipment: {partial_shipment} | Inspection: {inspection} | Governing Law: {governing_law} | Dispute Resolution: {dispute_resolution}\nTrademark Owner: {trademark_owner} | Trademark Owner Contact: {trademark_owner_contact} | Usage Terms: {trademark_usage}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
+              "expected_output": "A complete, bilingual Sales Contract with all required clauses properly structured. Every provided field must be populated. Apply stated defaults for blank legal/procedural fields. Only mark REQUIRES COMPLETION for genuinely missing commercial data. Output the full contract text from title to signature block."
             },
             {
               "name": "risk_advisory",
               "agent": "risk_advisor",
-              "description": "Based on the drafted Sales Contract above and the customs research, produce a detailed risk-avoidance advisory covering:\n1. Payment risk (non-payment, LC discrepancies, currency fluctuation)\n2. Customs and tariff risk (duties, documentation errors, anti-dumping measures)\n3. Delivery and logistics risk (Incoterm exposure, insurance gaps)\n4. IP and trademark risk (unauthorized use, infringement liability)\n5. Legal jurisdiction risk (governing law, enforcement challenges)\n6. Regulatory compliance risk (import licenses, product certifications, labeling requirements)\n7. Contract breach and remedies risk (termination, penalties, dispute resolution delays)\n\nFor each risk: description, potential consequence, and specific mitigation measure.",
-              "expected_output": "A structured risk advisory report with sections for each risk category. Written in both English and Traditional Chinese. This section will be appended at the end of the Sales Contract."
+              "description": "Based on the drafted Sales Contract, the customs research, and the credit risk assessment, produce a detailed risk-avoidance advisory covering:\n1. Payment and financial risk (incorporating credit risk findings)\n2. Customs and tariff risk\n3. Delivery and logistics risk\n4. IP and trademark risk\n5. Legal jurisdiction risk\n6. Regulatory compliance risk\n7. Contract breach and remedies risk\n\nFor each risk: description, potential consequence, and specific mitigation measure.",
+              "expected_output": "A structured risk advisory report with sections for each risk category. Written in both English and Traditional Chinese."
             },
             {
               "name": "format_and_output",
               "agent": "formatter",
-              "description": "You are given the full Sales Contract body and the full Risk Advisory. Combine them into one complete document.\n\nFormatting requirements:\n1. Output the FULL Sales Contract body first — every clause from title to signature block, exactly as drafted. Do not summarize or shorten it.\n2. Then append a clear separator: === RISK ADVISORY / 風險建議 ===\n3. Then output the FULL Risk Advisory — every section, exactly as written. Do not summarize or shorten it.\n4. Preserve all bilingual content (English and Traditional Chinese) exactly.\n5. Do not add, remove, or change any content.\n\nOutput the entire combined document as your final answer. It must be complete and ready for the user to copy directly.",
-              "expected_output": "The complete combined document containing: (1) the full Sales Contract from title to signature block, (2) a separator line, and (3) the full Risk Advisory. All content must be present in full — no summaries, no truncation. Both English and Traditional Chinese content preserved exactly."
+              "description": "You have THREE inputs from the previous tasks:\n1. The full Sales Contract body (from draft_contract task)\n2. The full Risk Advisory (from risk_advisory task)\n3. The Credit & Integrity Risk Assessment passed in as input variable: {credit_risk_assessment}\n\nCombine all three into one complete document following these exact formatting requirements:\n1. Output the FULL Sales Contract body first — every clause from title to signature block, exactly as drafted. Do not summarize or shorten it.\n2. Then append: === RISK ADVISORY / 風險建議 ===\n3. Then output the FULL Risk Advisory — every section, exactly as written. Do not summarize or shorten it.\n4. Then append: === CREDIT & INTEGRITY RISK ASSESSMENT / 信用及誠信風險評估 ===\n5. Then output the FULL Credit & Integrity Risk Assessment from the {credit_risk_assessment} input variable — every section, exactly as provided. Do not summarize or shorten it.\n6. Preserve all bilingual content (English and Traditional Chinese) exactly.\n7. Do not add, remove, or change any content.",
+              "expected_output": "The complete combined document: full Sales Contract, then full Risk Advisory, then full Credit & Integrity Risk Assessment. No summaries or truncation. Full bilingual content preserved."
             }
           ],
           "agents": {
             "formatter": {
-              "goal": "Combine the Sales Contract body and Risk Advisory into one single complete plain-text document ready for the user to read and copy.",
+              "goal": "Combine the Sales Contract body, Risk Advisory, and Credit & Integrity Risk Assessment into one single complete plain-text document ready for the user to read and copy.",
               "role": "Document Formatting Specialist",
               "verbose": true,
-              "backstory": "You are a professional document production specialist. You receive two inputs: the full contract body and the full risk advisory. You combine them into one complete document with the contract first, followed by the risk advisory section. You never summarize, truncate, or omit any content. You output the full document text.",
+              "backstory": "You receive the full contract body, the full risk advisory, and the full credit risk assessment (passed as the {credit_risk_assessment} input variable). You combine them into one complete document: contract first, then the risk advisory section, then the credit & integrity risk assessment section. You never summarize, truncate, or omit any content. You output the full document text.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
@@ -826,6 +835,7 @@
             "place_of_production": "${state.place_of_production}",
             "product_description": "${state.product_details.description}",
             "additional_obligations": "${state.additional_obligations}",
+            "credit_risk_assessment": "${outputs.assess_counterparty_credit_risk.raw}",
             "exporter_contact_title": "${state.exporter.contact_title}",
             "importer_contact_title": "${state.importer.contact_title}",
             "exporter_auth_rep_title": "${state.exporter.authorized_rep_title}",
@@ -838,7 +848,7 @@
       "start": false,
       "listen": "sales_contract",
       "router": false,
-      "description": "起草完整的雙語銷售合約，包含所有標準條款、風險建議及格式化輸出。"
+      "description": "起草完整的雙語銷售合約，包含所有標準條款、信用風險建議、風險建議及格式化輸出。"
     },
     "draft_commercial_invoice": {
       "do": {
@@ -848,28 +858,28 @@
             {
               "name": "draft_invoice",
               "agent": "invoice_drafter",
-              "description": "Using the customs regulations research and reviewed transaction data, prepare a complete Commercial Invoice in both English and Traditional Chinese (bilingual format).\n\nCOMMERCIAL INVOICE MANDATORY FIELDS:\n1. Invoice number and date\n2. Seller (exporter) full name, address, registration number, tax ID, contact person title and name, phone, email, authorized representative name and title\n3. Buyer (importer) full name, address, registration number, tax ID, contact person title and name, phone, email, authorized representative name and title\n4. Country of origin / Place of production: {place_of_production}\n5. Country of final destination\n6. Port of discharge: {port_of_discharge}\n7. HS Code and goods description\n8. Product name and specifications\n9. Quantity, unit of measure, unit price, and total price\n10. Currency of transaction\n11. Incoterm and named place\n12. Payment terms and method\n13. Marks and numbers on packages\n14. Packaging details\n15. Delivery terms and estimated shipment date\n16. Trademark owner information (if applicable)\n17. Certification statement\n18. Authorized signature block (authorized representative name and title)\n\nDEFAULT VALUES \\ apply when the input is blank; insert directly, do NOT mark REQUIRES COMPLETION:\n- Invoice number: INV-[YYYYMMDD]-001 (use today's date)\n- Payment timing: if blank \\ T/T 30% deposit before production, 70% balance before shipment\n- Certification statement: \"We hereby certify that the information on this invoice is true, correct and complete.\"\n\nREQUIRES COMPLETION \\ only mark these when not provided:\n- Exporter / importer names, addresses, registration numbers, tax IDs, contact details, authorized representatives\n- Product name, description, quantity, unit, unit price, total price, currency\n- HS Code, Incoterm and named place, port of discharge, place of production\n- Delivery date, bank details, marks and numbers\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Payment: {payment_method} | Payment Timing: {payment_timing} | Bank Details: {bank_details}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nProduction Date: {production_date} | Delivery Date: {delivery_date}\nTrademark Owner: {trademark_owner} | Trademark Owner Contact: {trademark_owner_contact} | Usage Terms: {trademark_usage}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
-              "expected_output": "A complete, bilingual (English and Traditional Chinese) Commercial Invoice with all mandatory fields accurately completed from the provided data. Apply stated default values for fields that can be defaulted. Only mark REQUIRES COMPLETION for genuinely missing commercial data (names, addresses, prices, HS code, incoterm, port, dates). No values may be invented or estimated. Output the full invoice from title to signature block."
+              "description": "Using the customs regulations research, credit risk assessment, and reviewed transaction data, prepare a complete Commercial Invoice in both English and Traditional Chinese (bilingual format).\n\nCOMMERCIAL INVOICE MANDATORY FIELDS:\n1. Invoice number and date\n2. Seller (exporter) full name, address, registration number, tax ID, contact person title and name, phone, email, authorized representative name and title\n3. Buyer (importer) full name, address, registration number, tax ID, contact person title and name, phone, email, authorized representative name and title\n4. Country of origin / Place of production: {place_of_production}\n5. Country of final destination\n6. Port of discharge: {port_of_discharge}\n7. HS Code and goods description\n8. Product name and specifications\n9. Quantity, unit of measure, unit price, and total price\n10. Currency of transaction\n11. Incoterm and named place\n12. Payment terms and method\n13. Marks and numbers on packages\n14. Packaging details\n15. Delivery terms and estimated shipment date\n16. Trademark owner information (if applicable)\n17. Certification statement\n18. Authorized signature block\n\nDEFAULT VALUES: Invoice number: INV-[YYYYMMDD]-001; Payment timing if blank: T/T 30% deposit before production, 70% balance before shipment; Certification statement: We hereby certify that the information on this invoice is true, correct and complete.\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== CREDIT & INTEGRITY RISK ASSESSMENT ===\n{credit_risk_assessment}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Payment: {payment_method} | Payment Timing: {payment_timing} | Bank Details: {bank_details}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nProduction Date: {production_date} | Delivery Date: {delivery_date}\nTrademark Owner: {trademark_owner} | Trademark Owner Contact: {trademark_owner_contact} | Usage Terms: {trademark_usage}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
+              "expected_output": "A complete, bilingual Commercial Invoice with all mandatory fields accurately completed. Apply stated defaults. Only mark REQUIRES COMPLETION for genuinely missing commercial data. Output the full invoice from title to signature block."
             },
             {
               "name": "invoice_risk_advisory",
               "agent": "risk_advisor",
-              "description": "Based on the drafted Commercial Invoice above and the customs research, produce a focused risk-avoidance advisory covering:\n1. Invoice valuation risk\n2. HS Code mis-classification risk\n3. Country of origin risk\n4. Document inconsistency risk\n5. LC compliance risk\n6. Regulatory risk\n\nFor each risk: description, potential consequence, and specific mitigation measure.",
-              "expected_output": "A structured risk advisory for the Commercial Invoice with sections for each risk category. Written in both English and Traditional Chinese."
+              "description": "Based on the drafted Commercial Invoice, the customs research, and the credit risk assessment, produce a focused risk-avoidance advisory covering: 1. Invoice valuation risk, 2. HS Code mis-classification risk, 3. Country of origin risk, 4. Document inconsistency risk, 5. LC compliance risk, 6. Regulatory risk, 7. Counterparty credit risk (referencing the credit assessment findings). For each risk: description, potential consequence, and specific mitigation measure.",
+              "expected_output": "A structured risk advisory for the Commercial Invoice covering all risk categories. Written in both English and Traditional Chinese."
             },
             {
               "name": "format_and_output",
               "agent": "formatter",
-              "description": "Combine the full Commercial Invoice body and the full Risk Advisory into one complete document.\n\nFormatting requirements:\n1. Output the FULL Commercial Invoice first \\ every field from title to signature block, exactly as drafted. Do not summarize or shorten it.\n2. Then append: === RISK ADVISORY / \\\\ ===\n3. Then output the FULL Risk Advisory \\ every section exactly as written.\n4. Preserve all bilingual content exactly.\n5. Do not add, remove, or change any content.\n\nOutput the entire combined document as your final answer.",
-              "expected_output": "The complete combined document: full Commercial Invoice then full Risk Advisory. No summaries or truncation. Full bilingual content preserved."
+              "description": "You have THREE inputs:\n1. The full Commercial Invoice body (from draft_invoice task)\n2. The full Risk Advisory (from invoice_risk_advisory task)\n3. The Credit & Integrity Risk Assessment passed in as input variable: {credit_risk_assessment}\n\nCombine all three into one complete document:\n1. Output the FULL Commercial Invoice first.\n2. Then append: === RISK ADVISORY / \\\\ ===\n3. Then output the FULL Risk Advisory.\n4. Then append: === CREDIT & INTEGRITY RISK ASSESSMENT / \\\\ ===\n5. Then output the FULL Credit & Integrity Risk Assessment from the {credit_risk_assessment} input variable \ndef exactly as provided. Do not summarize or shorten it.\n6. Preserve all bilingual content exactly.",
+              "expected_output": "The complete combined document: full Commercial Invoice, then full Risk Advisory, then full Credit & Integrity Risk Assessment. No summaries or truncation."
             }
           ],
           "agents": {
             "formatter": {
-              "goal": "Combine the Commercial Invoice body and Risk Advisory into one single complete plain-text document.",
+              "goal": "Combine the Commercial Invoice body, Risk Advisory, and Credit & Integrity Risk Assessment into one single complete plain-text document.",
               "role": "Document Formatting Specialist",
               "verbose": true,
-              "backstory": "You receive the full invoice body and the full risk advisory. You combine them into one complete document with the invoice first, then the risk advisory. You never summarize, truncate, or omit any content. You output the full document text.",
+              "backstory": "You receive the full invoice body, the full risk advisory, and the full credit risk assessment (passed as the {credit_risk_assessment} input variable). You combine them in that order. You never summarize, truncate, or omit any content.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
@@ -882,10 +892,10 @@
               "llm": "openai/gpt-5.6-luna"
             },
             "invoice_drafter": {
-              "goal": "Prepare a complete, customs-compliant Commercial Invoice that satisfies the import country requirements and accurately reflects all transaction data. Apply stated default values for any legal/procedural fields when blank \\ never mark a defaultable field as REQUIRES COMPLETION.",
+              "goal": "Prepare a complete, customs-compliant Commercial Invoice. Apply stated default values for any legal/procedural fields when blank.",
               "role": "International Trade Commercial Invoice Specialist",
               "verbose": true,
-              "backstory": "You are a specialist in international trade documentation with deep expertise in commercial invoice preparation for customs clearance. You base every entry strictly on the data provided and apply stated defaults for blank procedural fields. You never invent or estimate commercial data. If a required commercial field (name, address, price, HS code, incoterm, port) is not provided, mark it as REQUIRES COMPLETION.",
+              "backstory": "You are a specialist in international trade documentation. You base every entry strictly on the data provided and apply stated defaults for blank procedural fields. You never invent or estimate commercial data.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             }
@@ -933,6 +943,7 @@
             "place_of_production": "${state.place_of_production}",
             "product_description": "${state.product_details.description}",
             "additional_obligations": "${state.additional_obligations}",
+            "credit_risk_assessment": "${outputs.assess_counterparty_credit_risk.raw}",
             "exporter_contact_title": "${state.exporter.contact_title}",
             "importer_contact_title": "${state.importer.contact_title}",
             "exporter_auth_rep_title": "${state.exporter.authorized_rep_title}",
@@ -945,7 +956,7 @@
       "start": false,
       "listen": "commercial_invoice",
       "router": false,
-      "description": "起草完整的雙語商業發票，包含所有海關申報必要欄目，並整合風險建議及格式化輸出。"
+      "description": "起草完整的雙語商業發票，包含所有海關申報必要欄目，並整合信用風險評估、風險建議及格式化輸出。"
     },
     "review_and_optimize_data": {
       "do": {
@@ -953,7 +964,7 @@
         "with": {
           "goal": "Thoroughly audit all submitted transaction data for completeness, consistency, and legal compliance, then provide specific recommendations for missing or suboptimal fields before document generation proceeds.",
           "role": "Trade Document Quality Reviewer",
-          "input": "=== CUSTOMS REGULATIONS RESEARCH ===\n${outputs.research_customs_regulations.raw}\n\n=== SUBMITTED TRANSACTION DATA ===\nDocument Type: ${state.document_type}\n\nEXPORTER:\n- Company: ${state.exporter.company_name}\n- Address: ${state.exporter.address}\n- Registration No: ${state.exporter.company_registration_no}\n- Tax ID: ${state.exporter.tax_id}\n- Contact Title & Name: ${state.exporter.contact_title}\n- Phone: ${state.exporter.contact_phone}\n- Email: ${state.exporter.contact_email}\n- Authorized Representative: ${state.exporter.authorized_representative}\n- Authorized Rep Title: ${state.exporter.authorized_rep_title}\n\nIMPORTER:\n- Company: ${state.importer.company_name}\n- Address: ${state.importer.address}\n- Registration No: ${state.importer.company_registration_no}\n- Tax ID: ${state.importer.tax_id}\n- Contact Title & Name: ${state.importer.contact_title}\n- Phone: ${state.importer.contact_phone}\n- Email: ${state.importer.contact_email}\n- Authorized Representative: ${state.importer.authorized_representative}\n- Authorized Rep Title: ${state.importer.authorized_rep_title}\n\nPRODUCT DETAILS:\n- Product Name: ${state.product_details.name}\n- Description: ${state.product_details.description}\n- Quantity: ${state.product_details.quantity}\n- Specifications: ${state.product_details.specifications}\n- Packaging: ${state.product_details.packaging}\n- Unit Price: ${state.product_details.unit_price}\n- Total Price: ${state.product_details.total_price}\n- Currency: ${state.product_details.currency}\n- HS Code: ${state.hs_code}\n- Product Category: ${state.product_category}\n\nTRADE TERMS:\n- Incoterm: ${state.trade_terms.incoterm}\n- Payment Method: ${state.trade_terms.payment_method}\n- Payment Timing: ${state.trade_terms.payment_timing}\n- Bank Details: ${state.trade_terms.bank_details}\n- Warranty Period: ${state.trade_terms.warranty_period}\n- Partial Shipment: ${state.trade_terms.partial_shipment}\n- Inspection: ${state.trade_terms.inspection}\n- Governing Law: ${state.trade_terms.governing_law}\n- Dispute Resolution: ${state.trade_terms.dispute_resolution}\n- Estimated Production Date: ${state.trade_terms.estimated_production_date}\n- Estimated Delivery Date: ${state.trade_terms.estimated_delivery_date}\n\nLOGISTICS:\n- Target Import Country: ${state.target_import_country}\n- Place of Production: ${state.place_of_production}\n- Port of Discharge: ${state.port_of_discharge}\n\nTRADEMARK:\n- Owner: ${state.trademark_details.trademark_owner}\n- Owner Contact: ${state.trademark_details.trademark_owner_contact}\n- Usage Terms: ${state.trademark_details.trademark_usage_terms}\n\nADDITIONAL OBLIGATIONS: ${state.additional_obligations}\nOTHER REMARKS: ${state.other_remarks}\n\nPlease:\n1. Identify any missing, blank, or incomplete fields\n2. Flag any inconsistencies (e.g. total price vs unit price x quantity)\n3. Cross-reference submitted data against the customs requirements found\n4. Provide specific, actionable recommendations for each issue found\n5. Confirm which fields are complete and compliant\n6. Produce a final REVIEW SUMMARY with a READY / NEEDS CORRECTION verdict\n\nExpected output: A detailed data review report listing: (1) missing or incomplete fields with specific instructions for what information is needed, (2) inconsistency flags with explanations, (3) compliance gaps versus customs requirements, (4) optimization recommendations, and (5) a final verdict of READY FOR DOCUMENT GENERATION or NEEDS CORRECTION with a prioritized list of required corrections.",
+          "input": "=== CUSTOMS REGULATIONS RESEARCH ===\n${outputs.research_customs_regulations.raw}\n\n=== CREDIT & INTEGRITY RISK ASSESSMENT ===\n${outputs.assess_counterparty_credit_risk.raw}\n\n=== SUBMITTED TRANSACTION DATA ===\nDocument Type: ${state.document_type}\n\nEXPORTER:\n- Company: ${state.exporter.company_name}\n- Address: ${state.exporter.address}\n- Registration No: ${state.exporter.company_registration_no}\n- Tax ID: ${state.exporter.tax_id}\n- Contact Title & Name: ${state.exporter.contact_title}\n- Phone: ${state.exporter.contact_phone}\n- Email: ${state.exporter.contact_email}\n- Authorized Representative: ${state.exporter.authorized_representative}\n- Authorized Rep Title: ${state.exporter.authorized_rep_title}\n\nIMPORTER:\n- Company: ${state.importer.company_name}\n- Address: ${state.importer.address}\n- Registration No: ${state.importer.company_registration_no}\n- Tax ID: ${state.importer.tax_id}\n- Contact Title & Name: ${state.importer.contact_title}\n- Phone: ${state.importer.contact_phone}\n- Email: ${state.importer.contact_email}\n- Authorized Representative: ${state.importer.authorized_representative}\n- Authorized Rep Title: ${state.importer.authorized_rep_title}\n\nPRODUCT DETAILS:\n- Product Name: ${state.product_details.name}\n- Description: ${state.product_details.description}\n- Quantity: ${state.product_details.quantity}\n- Specifications: ${state.product_details.specifications}\n- Packaging: ${state.product_details.packaging}\n- Unit Price: ${state.product_details.unit_price}\n- Total Price: ${state.product_details.total_price}\n- Currency: ${state.product_details.currency}\n- HS Code: ${state.hs_code}\n- Product Category: ${state.product_category}\n\nTRADE TERMS:\n- Incoterm: ${state.trade_terms.incoterm}\n- Payment Method: ${state.trade_terms.payment_method}\n- Payment Timing: ${state.trade_terms.payment_timing}\n- Bank Details: ${state.trade_terms.bank_details}\n- Warranty Period: ${state.trade_terms.warranty_period}\n- Partial Shipment: ${state.trade_terms.partial_shipment}\n- Inspection: ${state.trade_terms.inspection}\n- Governing Law: ${state.trade_terms.governing_law}\n- Dispute Resolution: ${state.trade_terms.dispute_resolution}\n- Estimated Production Date: ${state.trade_terms.estimated_production_date}\n- Estimated Delivery Date: ${state.trade_terms.estimated_delivery_date}\n\nLOGISTICS:\n- Target Import Country: ${state.target_import_country}\n- Place of Production: ${state.place_of_production}\n- Port of Discharge: ${state.port_of_discharge}\n\nTRADEMARK:\n- Owner: ${state.trademark_details.trademark_owner}\n- Owner Contact: ${state.trademark_details.trademark_owner_contact}\n- Usage Terms: ${state.trademark_details.trademark_usage_terms}\n\nADDITIONAL OBLIGATIONS: ${state.additional_obligations}\nOTHER REMARKS: ${state.other_remarks}\n\nPlease:\n1. Identify any missing, blank, or incomplete fields\n2. Flag any inconsistencies (e.g. total price vs unit price x quantity)\n3. Cross-reference submitted data against the customs requirements found\n4. Note any HIGH or MEDIUM risk flags raised in the Credit & Integrity Risk Assessment that should be addressed before signing\n5. Provide specific, actionable recommendations for each issue found\n6. Confirm which fields are complete and compliant\n7. Produce a final REVIEW SUMMARY with a READY / NEEDS CORRECTION verdict\n\nExpected output: A detailed data review report listing: (1) missing or incomplete fields with specific instructions for what information is needed, (2) inconsistency flags with explanations, (3) compliance gaps versus customs requirements, (4) credit risk flags from the counterparty assessment that require attention, (5) optimization recommendations, and (6) a final verdict of READY FOR DOCUMENT GENERATION or NEEDS CORRECTION with a prioritized list of required corrections.",
           "verbose": true,
           "backstory": "You are a meticulous trade compliance officer and legal document reviewer with extensive experience in international trade documentation. You verify every data field against customs and legal standards, cross-reference provided information with the customs research findings, and flag any gaps or inconsistencies that could cause legal or customs issues. You never assume or invent missing data — you flag it explicitly for human confirmation.",
           "inject_date": true,
@@ -961,7 +972,7 @@
         }
       },
       "start": false,
-      "listen": "research_customs_regulations",
+      "listen": "assess_counterparty_credit_risk",
       "router": false,
       "description": "審核輸入表單資料的完整性，識別缺失或不一致的欄位，提供補充及優化建議。"
     },
@@ -973,36 +984,36 @@
             {
               "name": "draft_co",
               "agent": "co_drafter",
-              "description": "Using the customs regulations research and reviewed transaction data, prepare a complete Certificate of Origin in both English and Traditional Chinese (bilingual format).\n\nCERTIFICATE OF ORIGIN MANDATORY FIELDS:\n1. Certificate number and date\n2. Exporter full name, address, registration number, tax ID, authorized representative name and title\n3. Importer full name, address, registration number, tax ID, authorized representative name and title\n4. Country of origin / Place of production: {place_of_production}\n5. Country of final destination\n6. Port of discharge: {port_of_discharge}\n7. HS Code and detailed description of goods\n8. Product name and specifications\n9. Quantity and unit of measure\n10. Gross weight and net weight\n11. Number and type of packages\n12. Packaging details\n13. Marks and numbers on packages\n14. Invoice number and date\n15. Origin criteria applied\n16. Applicable trade agreement or preference scheme\n17. Declaration by exporter (authorized representative name and title)\n18. Certification block\n\nDEFAULT VALUES \\ apply when blank; insert directly, do NOT mark REQUIRES COMPLETION:\n- Certificate number: CO-[YYYYMMDD]-001 (use today's date)\n- Marks and numbers: if blank \\ N/M (No Marks)\n- Origin criteria: if blank \\ Wholly obtained or produced in {place_of_production}\n\nREQUIRES VERIFICATION \\ mark only these when not determinable from provided data:\n- Applicable trade agreement or preference scheme (if specific FTA preference is claimed)\n- Gross and net weight per package (if not in packaging field)\n\nREQUIRES COMPLETION \\ mark only these when not provided:\n- Exporter / importer names, addresses, registration numbers, tax IDs, authorized representatives\n- Product name, description, quantity, HS Code, port of discharge, place of production\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Delivery Date: {delivery_date}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
-              "expected_output": "A complete, bilingual Certificate of Origin with all mandatory fields accurately completed. Apply stated defaults for blank fields. Only mark REQUIRES VERIFICATION for trade-agreement specifics and REQUIRES COMPLETION for genuinely missing commercial identifiers. Output the full certificate from title to certification block."
+              "description": "Using the customs regulations research, credit risk assessment, and reviewed transaction data, prepare a complete Certificate of Origin in both English and Traditional Chinese (bilingual format).\n\nCERTIFICATE OF ORIGIN MANDATORY FIELDS:\n1. Certificate number and date\n2. Exporter full name, address, registration number, tax ID, authorized representative name and title\n3. Importer full name, address, registration number, tax ID, authorized representative name and title\n4. Country of origin / Place of production: {place_of_production}\n5. Country of final destination\n6. Port of discharge: {port_of_discharge}\n7. HS Code and detailed description of goods\n8. Product name and specifications\n9. Quantity and unit of measure\n10. Gross weight and net weight\n11. Number and type of packages\n12. Packaging details\n13. Marks and numbers on packages\n14. Invoice number and date\n15. Origin criteria applied\n16. Applicable trade agreement or preference scheme\n17. Declaration by exporter\n18. Certification block\n\nDEFAULT VALUES: Certificate number: CO-[YYYYMMDD]-001; Marks if blank: N/M; Origin criteria if blank: Wholly obtained or produced in {place_of_production}\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== CREDIT & INTEGRITY RISK ASSESSMENT ===\n{credit_risk_assessment}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Delivery Date: {delivery_date}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
+              "expected_output": "A complete, bilingual Certificate of Origin with all mandatory fields accurately completed. Output the full certificate from title to certification block."
             },
             {
               "name": "co_risk_advisory",
               "agent": "risk_advisor",
-              "description": "Based on the drafted Certificate of Origin above and the customs research, produce a focused risk-avoidance advisory covering:\n1. False origin declaration risk\n2. Rules of origin eligibility risk\n3. Preferential tariff claim risk\n4. Document inconsistency risk\n5. Issuing authority risk\n6. Retroactive certification risk\n\nFor each risk: description, potential consequence, and specific mitigation measure.",
-              "expected_output": "A structured risk advisory for the Certificate of Origin with sections for each risk category. Written in both English and Traditional Chinese."
+              "description": "Based on the drafted Certificate of Origin, customs research, and credit risk assessment, produce a focused risk-avoidance advisory covering: 1. False origin declaration risk, 2. Rules of origin eligibility risk, 3. Preferential tariff claim risk, 4. Document inconsistency risk, 5. Issuing authority risk, 6. Retroactive certification risk, 7. Counterparty credit risk. For each risk: description, potential consequence, and specific mitigation measure.",
+              "expected_output": "A structured risk advisory for the Certificate of Origin. Written in both English and Traditional Chinese."
             },
             {
               "name": "format_and_output",
               "agent": "formatter",
-              "description": "Combine the full Certificate of Origin body and the full Risk Advisory into one complete document.\n\nOutput the FULL Certificate of Origin first, then append === RISK ADVISORY / \\ ===, then output the FULL Risk Advisory. Preserve all bilingual content exactly.",
-              "expected_output": "The complete combined document: full Certificate of Origin then full Risk Advisory. No summaries or truncation."
+              "description": "You have THREE inputs:\n1. The full Certificate of Origin body (from draft_co task)\n2. The full Risk Advisory (from co_risk_advisory task)\n3. The Credit & Integrity Risk Assessment passed in as input variable: {credit_risk_assessment}\n\nCombine all three into one complete document:\n1. Output the FULL Certificate first.\n2. Then append: === RISK ADVISORY / \\\\ ===\n3. Then output the FULL Risk Advisory.\n4. Then append: === CREDIT & INTEGRITY RISK ASSESSMENT / \\\\ ===\n5. Then output the FULL Credit & Integrity Risk Assessment from the {credit_risk_assessment} input variable exactly as provided. Do not summarize or shorten it.\n6. Preserve all bilingual content exactly.",
+              "expected_output": "The complete combined document. No summaries or truncation."
             }
           ],
           "agents": {
             "formatter": {
-              "goal": "Combine the Certificate of Origin body and Risk Advisory into one single complete plain-text document.",
+              "goal": "Combine the Certificate of Origin body, Risk Advisory, and Credit & Integrity Risk Assessment into one single complete plain-text document.",
               "role": "Document Formatting Specialist",
               "verbose": true,
-              "backstory": "You receive the full certificate body and the full risk advisory. You combine them into one complete document with the certificate first, then the risk advisory. You never summarize, truncate, or omit any content. You output the full document text.",
+              "backstory": "You receive the full certificate body, the full risk advisory, and the full credit risk assessment (passed as the {credit_risk_assessment} input variable). You combine them in that order. You never summarize, truncate, or omit any content.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
             "co_drafter": {
-              "goal": "Prepare a complete, accurate Certificate of Origin that satisfies the rules of origin requirements of the target import country. Apply stated default values for blank fields \\ never mark a defaultable field as REQUIRES COMPLETION.",
+              "goal": "Prepare a complete, accurate Certificate of Origin that satisfies the rules of origin requirements of the target import country. Apply stated default values for blank fields.",
               "role": "Certificate of Origin Documentation Specialist",
               "verbose": true,
-              "backstory": "You are an international trade documentation specialist with deep expertise in certificates of origin. You base every entry strictly on the data provided and apply stated defaults for blank fields. You mark REQUIRES VERIFICATION only for trade-agreement preference specifics, and REQUIRES COMPLETION only for genuinely missing commercial identifiers.",
+              "backstory": "You are an international trade documentation specialist with deep expertise in certificates of origin. You base every entry strictly on the data provided and apply stated defaults for blank fields.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
@@ -1048,6 +1059,7 @@
             "place_of_production": "${state.place_of_production}",
             "product_description": "${state.product_details.description}",
             "additional_obligations": "${state.additional_obligations}",
+            "credit_risk_assessment": "${outputs.assess_counterparty_credit_risk.raw}",
             "exporter_contact_title": "${state.exporter.contact_title}",
             "importer_contact_title": "${state.importer.contact_title}",
             "exporter_auth_rep_title": "${state.exporter.authorized_rep_title}",
@@ -1059,7 +1071,7 @@
       "start": false,
       "listen": "certificate_of_origin",
       "router": false,
-      "description": "起草完整的雙語產地證明書，整合風險建議及格式化輸出。"
+      "description": "起草完整的雙語產地證明書，整合信用風險評估、風險建議及格式化輸出。"
     },
     "draft_inspection_certificate": {
       "do": {
@@ -1069,36 +1081,36 @@
             {
               "name": "draft_ic",
               "agent": "ic_drafter",
-              "description": "Using the customs regulations research and reviewed transaction data, prepare a complete Inspection Certificate in both English and Traditional Chinese (bilingual format).\n\nINSPECTION CERTIFICATE MANDATORY FIELDS:\n1. Certificate number and date\n2. Exporter (seller) full name, address, registration number, tax ID, authorized representative name and title\n3. Importer (buyer) full name, address, registration number, tax ID, authorized representative name and title\n4. Product name and description of goods\n5. HS Code and product category\n6. Place of production / country of origin: {place_of_production}\n7. Country of destination\n8. Port of discharge: {port_of_discharge}\n9. Quantity inspected and unit of measure\n10. Number and type of packages inspected\n11. Packaging details\n12. Marks and numbers on packages\n13. Inspection date and location\n14. Inspection standard applied\n15. Sampling method and sample size\n16. Test results and findings\n17. Pass / Fail verdict\n18. Applicable certifications (CE, RoHS, FDA, REACH etc.)\n19. Certifying body name, accreditation number, and contact details\n20. Authorized inspector signature and official stamp (authorized representative name and title)\n\nDEFAULT VALUES \\ apply when blank; insert directly, do NOT mark REQUIRES COMPLETION:\n- Certificate number: IC-[YYYYMMDD]-001 (use today's date)\n- Marks and numbers: if blank \\ N/M (No Marks)\n- Inspection standard: if blank \\ AQL 2.5 per ISO 2859-1 / MIL-STD-1916\n- Sampling method: if blank \\ Random sampling\n\nREQUIRES INSPECTOR INPUT \\ mark only these when not provided:\n- Actual inspection date and location\n- Certifying body name, accreditation number, contact details\n- Actual test results, findings, and Pass/Fail verdict\n- Specific certifications obtained (CE, RoHS, FDA, REACH etc.)\n\nREQUIRES COMPLETION \\ mark only when not provided:\n- Exporter / importer names, addresses, registration numbers, tax IDs, authorized representatives\n- Product name, description, quantity, HS Code, port of discharge, place of production\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Delivery Date: {delivery_date}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
-              "expected_output": "A complete, bilingual Inspection Certificate with all mandatory fields completed. Apply stated defaults for blank fields. Mark REQUIRES INSPECTOR INPUT only for actual inspection results. Mark REQUIRES COMPLETION only for genuinely missing commercial identifiers. Output the full certificate from title to signature block."
+              "description": "Using the customs regulations research, credit risk assessment, and reviewed transaction data, prepare a complete Inspection Certificate in both English and Traditional Chinese (bilingual format).\n\nINSPECTION CERTIFICATE MANDATORY FIELDS:\n1. Certificate number and date\n2. Exporter (seller) full name, address, registration number, tax ID, authorized representative name and title\n3. Importer (buyer) full name, address, registration number, tax ID, authorized representative name and title\n4. Product name and description of goods\n5. HS Code and product category\n6. Place of production / country of origin: {place_of_production}\n7. Country of destination\n8. Port of discharge: {port_of_discharge}\n9. Quantity inspected and unit of measure\n10. Number and type of packages inspected\n11. Packaging details\n12. Marks and numbers on packages\n13. Inspection date and location\n14. Inspection standard applied\n15. Sampling method and sample size\n16. Test results and findings\n17. Pass / Fail verdict\n18. Applicable certifications\n19. Certifying body name, accreditation number, and contact details\n20. Authorized inspector signature and official stamp\n\nDEFAULT VALUES: Certificate number: IC-[YYYYMMDD]-001; Marks if blank: N/M; Inspection standard if blank: AQL 2.5 per ISO 2859-1; Sampling method if blank: Random sampling\n\n=== CUSTOMS REGULATIONS ===\n{customs_research}\n\n=== CREDIT & INTEGRITY RISK ASSESSMENT ===\n{credit_risk_assessment}\n\n=== DATA REVIEW FINDINGS ===\n{data_review}\n\n=== TRANSACTION DATA ===\nExporter: {exporter_name}, {exporter_address} | Reg No: {exporter_reg_no} | Tax ID: {exporter_tax_id} | Contact: {exporter_contact_title} | Tel: {exporter_phone} | Email: {exporter_email} | Authorized Rep: {exporter_auth_rep} | Rep Title: {exporter_auth_rep_title}\nImporter: {importer_name}, {importer_address} | Reg No: {importer_reg_no} | Tax ID: {importer_tax_id} | Contact: {importer_contact_title} | Tel: {importer_phone} | Email: {importer_email} | Authorized Rep: {importer_auth_rep} | Rep Title: {importer_auth_rep_title}\nProduct: {product_name} | Description: {product_description} | Qty: {product_qty} | Specs: {product_specs} | Packaging: {product_packaging} | Unit Price: {unit_price} | Total: {total_price} | Currency: {currency}\nHS Code: {hs_code} | Incoterm: {incoterm} | Delivery Date: {delivery_date}\nPlace of Production: {place_of_production} | Port of Discharge: {port_of_discharge}\nAdditional Obligations: {additional_obligations}\nOther Remarks: {other_remarks}",
+              "expected_output": "A complete, bilingual Inspection Certificate with all mandatory fields completed. Output the full certificate from title to signature block."
             },
             {
               "name": "ic_risk_advisory",
               "agent": "risk_advisor",
-              "description": "Based on the drafted Inspection Certificate above and the customs research, produce a focused risk-avoidance advisory covering:\n1. Product non-conformance risk\n2. Certifying authority recognition risk\n3. Sampling adequacy risk\n4. Regulatory certification gap risk\n5. Document inconsistency risk\n6. Pre-shipment vs post-arrival inspection risk\n7. LC compliance risk\n\nFor each risk: description, potential consequence, and specific mitigation measure.",
-              "expected_output": "A structured risk advisory for the Inspection Certificate with sections for each risk category. Written in both English and Traditional Chinese."
+              "description": "Based on the drafted Inspection Certificate, customs research, and credit risk assessment, produce a focused risk-avoidance advisory covering: 1. Product non-conformance risk, 2. Certifying authority recognition risk, 3. Sampling adequacy risk, 4. Regulatory certification gap risk, 5. Document inconsistency risk, 6. Pre-shipment vs post-arrival inspection risk, 7. LC compliance risk, 8. Counterparty credit risk. For each risk: description, potential consequence, and specific mitigation measure.",
+              "expected_output": "A structured risk advisory for the Inspection Certificate. Written in both English and Traditional Chinese."
             },
             {
               "name": "format_and_output",
               "agent": "formatter",
-              "description": "Combine the full Inspection Certificate body and the full Risk Advisory into one complete document.\n\nOutput the FULL Inspection Certificate first, then append === RISK ADVISORY / \\ ===, then output the FULL Risk Advisory. Preserve all bilingual content exactly.",
-              "expected_output": "The complete combined document: full Inspection Certificate then full Risk Advisory. No summaries or truncation."
+              "description": "You have THREE inputs:\n1. The full Inspection Certificate body (from draft_ic task)\n2. The full Risk Advisory (from ic_risk_advisory task)\n3. The Credit & Integrity Risk Assessment passed in as input variable: {credit_risk_assessment}\n\nCombine all three into one complete document:\n1. Output the FULL Certificate first.\n2. Then append: === RISK ADVISORY / \\\\ ===\n3. Then output the FULL Risk Advisory.\n4. Then append: === CREDIT & INTEGRITY RISK ASSESSMENT / \\\\ ===\n5. Then output the FULL Credit & Integrity Risk Assessment from the {credit_risk_assessment} input variable exactly as provided. Do not summarize or shorten it.\n6. Preserve all bilingual content exactly.",
+              "expected_output": "The complete combined document. No summaries or truncation."
             }
           ],
           "agents": {
             "formatter": {
-              "goal": "Combine the Inspection Certificate body and Risk Advisory into one single complete plain-text document.",
+              "goal": "Combine the Inspection Certificate body, Risk Advisory, and Credit & Integrity Risk Assessment into one single complete plain-text document.",
               "role": "Document Formatting Specialist",
               "verbose": true,
-              "backstory": "You receive the full inspection certificate and the full risk advisory. You combine them into one complete document with the certificate first, then the risk advisory. You never summarize, truncate, or omit any content. You output the full document text.",
+              "backstory": "You receive the full inspection certificate, the full risk advisory, and the full credit risk assessment (passed as the {credit_risk_assessment} input variable). You combine them in that order. You never summarize, truncate, or omit any content.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
             "ic_drafter": {
-              "goal": "Prepare a complete, accurate Inspection Certificate that satisfies quality, regulatory, and customs requirements. Apply stated default values for blank fields \\ never mark a defaultable field as REQUIRES COMPLETION.",
+              "goal": "Prepare a complete, accurate Inspection Certificate that satisfies quality, regulatory, and customs requirements. Apply stated default values for blank fields.",
               "role": "Inspection Certificate Documentation Specialist",
               "verbose": true,
-              "backstory": "You are an international trade documentation specialist with deep expertise in inspection certificates. You base every entry strictly on the data provided and apply stated defaults for blank fields. You mark REQUIRES INSPECTOR INPUT only for actual inspection data not yet available, and REQUIRES COMPLETION only for genuinely missing commercial identifiers.",
+              "backstory": "You are an international trade documentation specialist with deep expertise in inspection certificates. You base every entry strictly on the data provided and apply stated defaults for blank fields.",
               "inject_date": true,
               "llm": "openai/gpt-5.6-luna"
             },
@@ -1144,6 +1156,7 @@
             "place_of_production": "${state.place_of_production}",
             "product_description": "${state.product_details.description}",
             "additional_obligations": "${state.additional_obligations}",
+            "credit_risk_assessment": "${outputs.assess_counterparty_credit_risk.raw}",
             "exporter_contact_title": "${state.exporter.contact_title}",
             "importer_contact_title": "${state.importer.contact_title}",
             "exporter_auth_rep_title": "${state.exporter.authorized_rep_title}",
@@ -1155,7 +1168,7 @@
       "start": false,
       "listen": "inspection_certificate",
       "router": false,
-      "description": "起草完整的雙語檢驗證書，整合風險建議及格式化輸出。"
+      "description": "起草完整的雙語檢驗證書，整合信用風險評估、風險建議及格式化輸出。"
     },
     "research_customs_regulations": {
       "do": {
@@ -1177,6 +1190,77 @@
       "start": true,
       "router": false,
       "description": "根據目標進口國及 HS Code，搜集並整理最新關稅、進出口法規及合規要求。"
+    },
+    "assess_counterparty_credit_risk": {
+      "do": {
+        "call": "crew",
+        "with": {
+          "name": "counterparty_credit_risk_crew",
+          "tasks": [
+            {
+              "name": "investigate_exporter",
+              "agent": "credit_investigator",
+              "description": "Conduct a public-source due diligence search on the EXPORTER using all available identifiers below.\n\nEXPORTER DETAILS:\n- Company Name: {exporter_name}\n- Registration No: {exporter_reg_no}\n- Tax ID: {exporter_tax_id}\n- Address: {exporter_address}\n- Phone: {exporter_phone}\n- Email: {exporter_email}\n- Authorized Representative: {exporter_auth_rep}\n\nSearch for:\n1. Litigation and court records (civil, criminal, commercial disputes)\n2. Regulatory violations, fines, enforcement actions, licence revocations\n3. Sanctions screening (OFAC, EU, UN, HK, UK lists)\n4. Bankruptcy, insolvency, liquidation proceedings\n5. Customs fraud, smuggling, export control violations\n6. Negative news, fraud allegations, consumer complaints\n7. Corporate registration status (active / dissolved / struck off)\n8. Directors / officers with adverse records\n\nFor each search: state the source searched and the result found. If no adverse record is found, state: NO ADVERSE RECORD FOUND — [source]. If the search returns nothing, state: NO DATA: search returned nothing.",
+              "expected_output": "A structured investigative report for the Exporter covering all 8 search categories. Each category lists the source searched and the finding. If no data was found for any category, state NO DATA: search returned nothing. Do not invent or estimate any finding."
+            },
+            {
+              "name": "investigate_importer",
+              "agent": "credit_investigator",
+              "description": "Conduct a public-source due diligence search on the IMPORTER using all available identifiers below.\n\nIMPORTER DETAILS:\n- Company Name: {importer_name}\n- Registration No: {importer_reg_no}\n- Tax ID: {importer_tax_id}\n- Address: {importer_address}\n- Phone: {importer_phone}\n- Email: {importer_email}\n- Authorized Representative: {importer_auth_rep}\n\nSearch for:\n1. Litigation and court records (civil, criminal, commercial disputes)\n2. Regulatory violations, fines, enforcement actions, licence revocations\n3. Sanctions screening (OFAC, EU, UN, HK, UK lists)\n4. Bankruptcy, insolvency, liquidation proceedings\n5. Customs fraud, import violations, duty evasion records\n6. Negative news, fraud allegations, payment default history\n7. Corporate registration status (active / dissolved / struck off)\n8. Directors / officers with adverse records\n\nFor each search: state the source searched and the result found. If no adverse record is found, state: NO ADVERSE RECORD FOUND — [source]. If the search returns nothing, state: NO DATA: search returned nothing.",
+              "expected_output": "A structured investigative report for the Importer covering all 8 search categories. Each category lists the source searched and the finding. If no data was found for any category, state NO DATA: search returned nothing. Do not invent or estimate any finding."
+            },
+            {
+              "name": "compile_credit_risk_report",
+              "agent": "credit_analyst",
+              "description": "Using the exporter investigation report and importer investigation report from the previous tasks, produce a comprehensive bilingual (English and Traditional Chinese) Credit and Integrity Risk Assessment Report.\n\nThe report must include:\n\n## SECTION 1: EXPORTER CREDIT & INTEGRITY ASSESSMENT\n### 1.1 Identity Verification Summary\n### 1.2 Litigation & Legal Records\n### 1.3 Regulatory & Compliance Records\n### 1.4 Sanctions Screening Result\n### 1.5 Financial Health Indicators\n### 1.6 Negative News & Reputation\n### 1.7 Exporter Risk Rating: LOW / MEDIUM / HIGH / INSUFFICIENT DATA\n### 1.8 Recommendations\n\n## SECTION 2: IMPORTER CREDIT & INTEGRITY ASSESSMENT\n### 2.1 Identity Verification Summary\n### 2.2 Litigation & Legal Records\n### 2.3 Regulatory & Compliance Records\n### 2.4 Sanctions Screening Result\n### 2.5 Financial Health Indicators\n### 2.6 Negative News & Reputation\n### 2.7 Importer Risk Rating: LOW / MEDIUM / HIGH / INSUFFICIENT DATA\n### 2.8 Recommendations\n\n## SECTION 3: OVERALL TRANSACTION RISK VERDICT\n### 3.1 Combined Risk Level: LOW / MEDIUM / HIGH / INSUFFICIENT DATA\n### 3.2 Key Risk Flags (if any)\n### 3.3 Recommended Due Diligence Actions Before Signing\n\nRULES:\n- Base every finding strictly on the investigation data provided in the previous tasks.\n- If investigation returned NO DATA for a party, state clearly: No adverse records found in the sources searched. Additional independent verification is recommended before proceeding.\n- Never assign LOW risk solely because no data was found — use INSUFFICIENT DATA rating in that case.\n- Never invent litigation records, violations or financial disputes.\n- Write all section headings and content in both English and Traditional Chinese.\n- INSUFFICIENT DATA means searches returned no results — it does not mean the party is clean.",
+              "expected_output": "A complete bilingual Credit and Integrity Risk Assessment Report with all 3 sections fully completed. Each subsection contains the finding and its Traditional Chinese translation. Risk ratings are clearly stated. Recommendations are specific and actionable. If investigation data was absent for any party, the report clearly states INSUFFICIENT DATA and recommends independent verification."
+            }
+          ],
+          "agents": {
+            "credit_analyst": {
+              "goal": "Synthesise the investigation findings into a structured credit and integrity risk assessment for both parties, assign a risk rating, and produce actionable recommendations for the contracting party.",
+              "role": "Trade Credit Risk Analyst",
+              "verbose": true,
+              "backstory": "You are a senior trade credit analyst with 20+ years of experience assessing counterparty risk for cross-border transactions. You base every finding strictly on the investigation data provided. If the investigation returned NO DATA for a party, you state clearly that no adverse records were found in the sources searched — you never infer risk from silence. You produce a clear bilingual (English and Traditional Chinese) assessment with a final risk verdict.",
+              "inject_date": true,
+              "llm": "openai/gpt-5.6-luna"
+            },
+            "credit_investigator": {
+              "goal": "Search public sources to identify litigation records, regulatory violations, financial disputes, sanctions, bankruptcy and negative news for both the exporter and importer. Report only what is actually found — never invent or assume records.",
+              "role": "International Trade Counterparty Due Diligence Investigator",
+              "tools": [
+                "crewai_tools:ExaSearchTool",
+                "crewai_tools:ScrapeWebsiteTool"
+              ],
+              "verbose": true,
+              "backstory": "You are a specialist in cross-border trade due diligence with expertise in searching corporate registries, court records, sanctions lists, regulatory databases and business news. You work strictly from verified public sources. If a search returns no results, you report NO DATA: search returned nothing rather than guessing or fabricating findings. You never invent litigation records, violation notices or financial disputes.",
+              "inject_date": true,
+              "llm": "openai/gpt-5.6-luna"
+            }
+          },
+          "inputs": {
+            "exporter_name": "${state.exporter.company_name}",
+            "importer_name": "${state.importer.company_name}",
+            "exporter_email": "${state.exporter.contact_email}",
+            "exporter_phone": "${state.exporter.contact_phone}",
+            "importer_email": "${state.importer.contact_email}",
+            "importer_phone": "${state.importer.contact_phone}",
+            "exporter_reg_no": "${state.exporter.company_registration_no}",
+            "exporter_tax_id": "${state.exporter.tax_id}",
+            "importer_reg_no": "${state.importer.company_registration_no}",
+            "importer_tax_id": "${state.importer.tax_id}",
+            "exporter_address": "${state.exporter.address}",
+            "importer_address": "${state.importer.address}",
+            "exporter_auth_rep": "${state.exporter.authorized_representative}",
+            "importer_auth_rep": "${state.importer.authorized_representative}"
+          },
+          "verbose": true
+        }
+      },
+      "start": false,
+      "listen": "research_customs_regulations",
+      "router": false,
+      "description": "對出口商及進口商進行信用度及誠信風險評估，包括法律訴訟、違法紀錄、財務爭議等負面紀錄搜查。"
     }
   },
   "description": "針對目標進口國客戶訂單，自動搜集最新關務法規，收集交易資料，審核並優化，由法律專家起草完整貿易文件，最終輸出 Word 格式檔案。"

@@ -19,7 +19,7 @@ packages = ["src/international_trade_legal_document_automation"]
 [tool.crewai]
 type = "flow"
 definition = "src/international_trade_legal_document_automation/flow.json"
-project_id = "aada6817-0968-4b91-9310-867315d43b84"
+project_id = "c3b6981d-7be2-44c8-ad9e-7896dae36c18"
 
 [tool.uv]
 override-dependencies = ["litellm<=1.82.6"]

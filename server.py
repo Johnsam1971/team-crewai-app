@@ -27,7 +27,7 @@ if openrouter_key:
     os.environ["OPENAI_API_KEY"] = openrouter_key
     os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
 
-app = FastAPI(title="International Trade Document API", version="1.0")
+app = FastAPI(title="International Trade Document API", version="1.1")
 
 class TradeDocumentRequest(BaseModel):
     document_type: str = "Sales Contract (銷售合約)"
@@ -48,15 +48,15 @@ class TradeDocumentRequest(BaseModel):
     exporter_email: str = "export@plantech.com"
     exporter_auth_rep: str = "Johnson"
     exporter_auth_rep_title: str = "CEO"
-    importer_company_name: str = "Plantech Dynamic Technology (Vietnam) Limited"
-    importer_address: str = "No. 15, VSIP Bac Ninh, Tu Son, Bac Ninh Province, Vietnam"
-    importer_reg_no: str = "0109876543"
-    importer_tax_id: str = "VN-11223344"
+    importer_company_name: str = "American Hospitality Properties REIT, Inc."
+    importer_address: str = "14643 Dallas Parkway, Suite 970, Dallas, TX 75254, United States"
+    importer_reg_no: str = "7010469"
+    importer_tax_id: str = "83-2386947"
     importer_contact_title: str = "Procurement Manager"
-    importer_contact_name: str = "Nguyen Van A"
-    importer_phone: str = "+84 222 3888 999"
-    importer_email: str = "import@plantech.vn"
-    importer_auth_rep: str = "Robert"
+    importer_contact_name: str = "Robert Lee"
+    importer_phone: str = "+1-214-7502967"
+    importer_email: str = "john.dave@phoenixamericanhospitality.com"
+    importer_auth_rep: str = "Joe Reardon"
     importer_auth_rep_title: str = "Director"
     product_name: str = "GeoTextile VIP1230"
     product_description: str = "200-meter, 70 g/m², black, nonwoven geotextile jumbo rolls."
