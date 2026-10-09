@@ -27,7 +27,7 @@ if openrouter_key:
     os.environ["OPENAI_API_KEY"] = openrouter_key
     os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
 
-app = FastAPI(title="International Trade Document API", version="1.1")
+app = FastAPI(title="International Trade Document API", version="1.2")
 
 class TradeDocumentRequest(BaseModel):
     document_type: str = "Sales Contract (銷售合約)"
