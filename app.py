@@ -26,11 +26,9 @@ try:
 except ImportError:
     from international_trade_legal_document_automation.crews.crew import run_flow
 
-# 金鑰注入 (Google Gemini API Key)
-if "GEMINI_API_KEY" in st.secrets:
-    os.environ["GEMINI_API_KEY"] = st.secrets["GEMINI_API_KEY"]
-elif "GOOGLE_API_KEY" in st.secrets:
-    os.environ["GEMINI_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
+# 金鑰注入
+if "OPENROUTER_API_KEY" in st.secrets:
+    os.environ["OPENROUTER_API_KEY"] = st.secrets["OPENROUTER_API_KEY"]
 
 st.set_page_config(page_title="國際貿易法律文件 AI 自動生成系統", page_icon="⚖️", layout="wide")
 
@@ -163,10 +161,10 @@ def show_download_buttons(md_text: str, filename_prefix: str = "trade_document")
         st.download_button("⬇️ 下載 PDF (.pdf)", data=pdf_bytes, file_name=f"{filename_prefix}.pdf", mime="application/pdf")
 
 # -----------------------------------------------------------------------------
-# Streamlit 表單 UI 介面（含詳細輸入提示 Tooltips）
+# Streamlit 表單 UI 介面（含完整詳細輸入提示 Tooltips）
 # -----------------------------------------------------------------------------
 st.title("⚖️ 國際貿易法律文件 AI 自動生成系統")
-st.markdown("填寫下方交易資訊，系統將自動調用 CrewAI + Google Gemini 生成完全無佔位符且具備雙語對照的正式文件、風險建議及進口商（買家）信用風險評估報告。")
+st.markdown("填寫下方交易資訊，系統將自動調用 CrewAI + OpenRouter (Gemini 3.5 Flash-Lite) 生成完全無佔位符且具備雙語對照的正式文件、風險建議及進口商（買家）信用風險評估報告。")
 
 DOC_TYPES_MAP = {
     "Sales Contract (銷售合約)": "Sales Contract",
@@ -534,7 +532,7 @@ if submitted:
         "production_date": str(production_date),
     }
 
-    with st.spinner("Google Gemini AI 正在進行關務法規搜查、進口商 (買家) 信用盡職調查，並編撰全雙語法律文件與風險報告..."):
+    with st.spinner("OpenRouter (Gemini 3.5 Flash-Lite) 正在進行關務法規搜查、進口商 (買家) 信用盡職調查，並編撰全雙語法律文件與風險報告..."):
         try:
             result_text = run_flow(inputs)
             st.session_state.result = result_text
