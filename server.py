@@ -19,10 +19,9 @@ try:
 except ImportError:
     from international_trade_legal_document_automation.crews.crew import run_flow
 
-openrouter_key = os.getenv("OPENROUTER_API_KEY")
-if openrouter_key:
-    os.environ["OPENAI_API_KEY"] = openrouter_key
-    os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
+gemini_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+if gemini_key:
+    os.environ["GEMINI_API_KEY"] = gemini_key
 
 app = FastAPI(title="International Trade Document API", version="1.3")
 

@@ -27,8 +27,10 @@ except ImportError:
     from international_trade_legal_document_automation.crews.crew import run_flow
 
 # 金鑰注入
-if "OPENROUTER_API_KEY" in st.secrets:
-    os.environ["OPENROUTER_API_KEY"] = st.secrets["OPENROUTER_API_KEY"]
+if "GEMINI_API_KEY" in st.secrets:
+    os.environ["GEMINI_API_KEY"] = st.secrets["GEMINI_API_KEY"]
+elif "GOOGLE_API_KEY" in st.secrets:
+    os.environ["GEMINI_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 
 st.set_page_config(page_title="國際貿易法律文件 AI 自動生成系統", page_icon="⚖️", layout="wide")
 
@@ -532,7 +534,7 @@ if submitted:
         "production_date": str(production_date),
     }
 
-    with st.spinner("OpenRouter (Gemini 3.5 Flash-Lite) 正在進行關務法規搜查、進口商 (買家) 信用盡職調查，並編撰全雙語法律文件與風險報告..."):
+    with st.spinner("Google Gemini AI 正在進行關務法規搜查、進口商信用盡職調查，並編撰全雙語法律文件與風險報告..."):
         try:
             result_text = run_flow(inputs)
             st.session_state.result = result_text
