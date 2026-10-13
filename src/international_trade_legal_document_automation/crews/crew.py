@@ -2,15 +2,17 @@ import os
 from crewai import Agent, Crew, Process, Task, LLM
 
 # --------------------------------------------------
-# Google Gemini API 設定 (Gemini 1.5 Pro)
+# Google Gemini API 設定 (透過 OpenAI 相容介面)
 # --------------------------------------------------
 gemini_api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
 
 if gemini_api_key:
-    os.environ["GEMINI_API_KEY"] = gemini_api_key
+    os.environ["OPENAI_API_KEY"] = gemini_api_key
+    os.environ["OPENAI_API_BASE"] = "https://generativelanguage.googleapis.com/v1beta/openai/"
 
 llm = LLM(
-    model="gemini/gemini-1.5-pro",
+    model="openai/gemini-1.5-pro",
+    base_url="https://generativelanguage.googleapis.com/v1beta/openai/",
     api_key=gemini_api_key,
     temperature=0.1
 )
