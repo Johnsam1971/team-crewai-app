@@ -6,3 +6,4 @@ crewai
 fastapi
 pydantic
 uvicorn
+google-generativeai
