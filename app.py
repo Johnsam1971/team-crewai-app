@@ -21,7 +21,6 @@ if str(CREWS_DIR) not in sys.path:
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
 
-# 嘗試導入 crew 模組
 try:
     from crew import run_flow
 except ImportError:
@@ -39,7 +38,6 @@ st.set_page_config(page_title="國際貿易法律文件 AI 自動生成系統", 
 # 高級 Markdown 轉 Word / PDF 工具函數
 # -----------------------------------------------------------------------------
 def md_to_docx(md_text: str) -> bytes:
-    """將 Markdown 文字轉換為結構完整、支援表格與格式的 Word (.docx) 檔"""
     doc = Document()
     style = doc.styles['Normal']
     style.font.name = 'Arial'
@@ -128,7 +126,6 @@ def _add_formatted_text(paragraph, text):
             paragraph.add_run(part)
 
 def md_to_pdf(md_text: str) -> bytes:
-    """將 Markdown 文字轉為 PDF (.pdf) 檔"""
     html_content = markdown.markdown(md_text, extensions=['tables', 'fenced_code'])
     styled_html = f"""
     <html>
@@ -166,7 +163,7 @@ def show_download_buttons(md_text: str, filename_prefix: str = "trade_document")
         st.download_button("⬇️ 下載 PDF (.pdf)", data=pdf_bytes, file_name=f"{filename_prefix}.pdf", mime="application/pdf")
 
 # -----------------------------------------------------------------------------
-# Streamlit 表單 UI 介面
+# Streamlit 表單 UI 介面（含詳細輸入提示 Tooltips）
 # -----------------------------------------------------------------------------
 st.title("⚖️ 國際貿易法律文件 AI 自動生成系統")
 st.markdown("填寫下方交易資訊，系統將自動調用 CrewAI + Google Gemini 生成完全無佔位符且具備雙語對照的正式文件、風險建議及進口商（買家）信用風險評估報告。")
@@ -185,78 +182,302 @@ DOC_TYPES_MAP = {
 with st.form("trade_form"):
     st.header("1. 基本合約資訊與文件類型")
     c1, c2, c3, c4 = st.columns(4)
-    selected_doc_label = c1.selectbox("文件類型*", list(DOC_TYPES_MAP.keys()), help="選擇生成的貿易文件類型")
+    selected_doc_label = c1.selectbox(
+        "文件類型*", 
+        list(DOC_TYPES_MAP.keys()),
+        help="Select the type of trade document to generate. Enter exactly one of: Sales Contract | Commercial Invoice | Packing List | Certificate of Origin | LC Application | Bill of Lading | Inspection Certificate | Other"
+    )
     document_type = DOC_TYPES_MAP[selected_doc_label]
     
-    contract_no = c2.text_input("合約編號*", "GeoTextile-VIP1230-2026", placeholder="例如: GeoTextile-VIP1230-2026", help="合約或文件編號")
-    contract_date = c3.text_input("簽署日期*", "2026-10-08", placeholder="格式: YYYY-MM-DD", help="簽署日期")
-    effective_date = c4.text_input("生效日期*", "2026-10-08", placeholder="格式: YYYY-MM-DD", help="生效日期")
+    contract_no = c2.text_input(
+        "合約編號*", 
+        "GeoTextile-VIP1230-2026", 
+        placeholder="例如: GeoTextile-VIP1230-2026",
+        help="Contract or reference number. Example: GeoTextile-VIP1230-2026 | SC-2026-001"
+    )
+    contract_date = c3.text_input(
+        "簽署日期*", 
+        "2026-10-08", 
+        placeholder="格式: YYYY-MM-DD",
+        help="Contract signing date. Format: YYYY-MM-DD. Example: 2026-10-08"
+    )
+    effective_date = c4.text_input(
+        "生效日期*", 
+        "2026-10-08", 
+        placeholder="格式: YYYY-MM-DD",
+        help="Contract effective date. Format: YYYY-MM-DD. Example: 2026-10-08"
+    )
 
     c5, c6 = st.columns(2)
-    target_import_country = c5.text_input("目標進口國*", "United States", placeholder="例如: United States", help="目標進口國家")
-    hs_code = c6.text_input("HS Code*", "5603.93.00", placeholder="例如: 5603.93.00", help="海關稅則編號")
+    target_import_country = c5.text_input(
+        "目標進口國*", 
+        "United States", 
+        placeholder="例如: United States",
+        help="Country where goods will be imported. Examples: United States | Germany | Japan | Australia | United Kingdom | France | Canada"
+    )
+    hs_code = c6.text_input(
+        "HS Code*", 
+        "5603.93.00", 
+        placeholder="例如: 5603.93.00",
+        help="Harmonized System Code for customs classification. Examples: 8471.30 | 6203.42 | 9403.20 | 8516.60 (enter full HS code including dots)"
+    )
 
     st.header("2. 出口商 (Exporter / Seller) 資料")
     e1, e2 = st.columns(2)
-    exporter_company_name = e1.text_input("出口商公司名稱*", "Plantech Industries PTE Ltd", placeholder="例如: Plantech Industries PTE Ltd", help="賣方公司名稱")
-    exporter_address = e2.text_input("出口商地址*", "10 Anson Road #26-04, International Plaza, Singapore", placeholder="例如: 10 Anson Road...", help="賣方地址")
+    exporter_company_name = e1.text_input(
+        "出口商公司名稱*", 
+        "Plantech Industries PTE Ltd", 
+        placeholder="例如: Plantech Industries PTE Ltd",
+        help="Full legal registered company name of exporter. Example: ABC Manufacturing Ltd. | Plantech Industries PTE Ltd"
+    )
+    exporter_address = e2.text_input(
+        "出口商地址*", 
+        "10 Anson Road #26-04, International Plaza, Singapore", 
+        placeholder="例如: 10 Anson Road...",
+        help="Full registered address including street, city, country. Example: 123 Industrial Road, Shenzhen, Guangdong, China 518000"
+    )
     e3, e4 = st.columns(2)
-    exporter_reg_no = e3.text_input("出口商註冊號", "201812345M", placeholder="例如: 201812345M", help="賣方商業登記號")
-    exporter_tax_id = e4.text_input("出口商稅號", "GST-987654321", placeholder="例如: GST-987654321", help="賣方稅號")
+    exporter_reg_no = e3.text_input(
+        "出口商註冊號", 
+        "201812345M", 
+        placeholder="例如: 201812345M",
+        help="Company registration or business license number. Example: 91440300MA5DXXXX00 | 201812345M"
+    )
+    exporter_tax_id = e4.text_input(
+        "出口商稅號", 
+        "GST-987654321", 
+        placeholder="例如: GST-987654321",
+        help="Tax identification / VAT / GST number. Example: 91440300MA5DXXXX00 | GB123456789 | GST-987654321"
+    )
     e5, e6, e7 = st.columns(3)
-    exporter_contact_title = e5.text_input("出口商聯絡人職稱", "Sales Director", placeholder="例如: Sales Director", help="職稱")
-    exporter_contact_name = e6.text_input("出口商聯絡人姓名", "John Doe", placeholder="例如: John Doe", help="姓名")
-    exporter_phone = e7.text_input("出口商電話", "+65 6123 4567", placeholder="例如: +65 6123 4567", help="電話")
+    exporter_contact_title = e5.text_input(
+        "出口商聯絡人職稱", 
+        "Sales Director", 
+        placeholder="例如: Sales Director",
+        help="Contact person title and full name. Example: Mr. John Smith | Ms. Mary Chan | Sales Director"
+    )
+    exporter_contact_name = e6.text_input(
+        "出口商聯絡人姓名", 
+        "John Doe", 
+        placeholder="例如: John Doe",
+        help="Contact person name. Example: John Smith | David Wong"
+    )
+    exporter_phone = e7.text_input(
+        "出口商電話", 
+        "+65 6123 4567", 
+        placeholder="例如: +65 6123 4567",
+        help="Contact phone with country code. Example: +86-755-12345678 | +852-21234567 | +1-213-5551234"
+    )
     e8, e9, e10 = st.columns(3)
-    exporter_email = e8.text_input("出口商 Email", "export@plantech.com", placeholder="例如: export@plantech.com", help="電子郵件")
-    exporter_auth_rep = e9.text_input("出口授權代表姓名", "Johnson", placeholder="例如: Johnson", help="授權代表")
-    exporter_auth_rep_title = e10.text_input("出口授權代表職稱", "CEO", placeholder="例如: CEO", help="代表職稱")
+    exporter_email = e8.text_input(
+        "出口商 Email", 
+        "export@plantech.com", 
+        placeholder="例如: export@plantech.com",
+        help="Contact email address. Example: john.smith@abcmfg.com | export@plantech.com"
+    )
+    exporter_auth_rep = e9.text_input(
+        "出口授權代表姓名", 
+        "Johnson", 
+        placeholder="例如: Johnson",
+        help="Full name of authorized signatory. Example: John Smith | Johnson"
+    )
+    exporter_auth_rep_title = e10.text_input(
+        "出口授權代表職稱", 
+        "CEO", 
+        placeholder="例如: CEO",
+        help="Title of authorized signatory. Example: General Manager | Director | CEO"
+    )
 
     st.header("3. 進口商 (Importer / Buyer) 資料")
     i1, i2 = st.columns(2)
-    importer_company_name = i1.text_input("進口商公司名稱*", "American Hospitality Properties REIT, Inc.", placeholder="例如: American Hospitality Properties REIT, Inc.", help="買方公司名稱")
-    importer_address = i2.text_input("進口商地址*", "14643 Dallas Parkway, Suite 970, Dallas, TX 75254, United States", placeholder="例如: 14643 Dallas Parkway...", help="買方地址")
+    importer_company_name = i1.text_input(
+        "進口商公司名稱*", 
+        "American Hospitality Properties REIT, Inc.", 
+        placeholder="例如: American Hospitality Properties REIT, Inc.",
+        help="Full legal registered company name of importer. Example: XYZ Trading Inc. | American Hospitality Properties REIT, Inc."
+    )
+    importer_address = i2.text_input(
+        "進口商地址*", 
+        "14643 Dallas Parkway, Suite 970, Dallas, TX 75254, United States", 
+        placeholder="例如: 14643 Dallas Parkway...",
+        help="Full registered address including street, city, country. Example: 456 Commerce Street, Los Angeles, CA 90001, USA"
+    )
     i3, i4 = st.columns(2)
-    importer_reg_no = i3.text_input("進口商註冊號", "7010469", placeholder="例如: 7010469", help="買方商業登記號")
-    importer_tax_id = i4.text_input("進口商稅號", "83-2386947", placeholder="例如: 83-2386947", help="買方稅號")
+    importer_reg_no = i3.text_input(
+        "進口商註冊號", 
+        "7010469", 
+        placeholder="例如: 7010469",
+        help="Company registration or importer identification number. Example: US-EIN-12-3456789 | DE-HRB-123456 | 7010469"
+    )
+    importer_tax_id = i4.text_input(
+        "進口商稅號", 
+        "83-2386947", 
+        placeholder="例如: 83-2386947",
+        help="Tax identification / VAT/GST / importer number. Example: 12-3456789 | DE123456789 | AU12345678 | 83-2386947"
+    )
     i5, i6, i7 = st.columns(3)
-    importer_contact_title = i5.text_input("進口商聯絡人職稱", "Procurement Manager", placeholder="例如: Procurement Manager", help="職稱")
-    importer_contact_name = i6.text_input("進口商聯絡人姓名", "Robert Lee", placeholder="例如: Robert Lee", help="姓名")
-    importer_phone = i7.text_input("進口商電話", "+1-214-7502967", placeholder="例如: +1-214-7502967", help="電話")
+    importer_contact_title = i5.text_input(
+        "進口商聯絡人職稱", 
+        "Procurement Manager", 
+        placeholder="例如: Procurement Manager",
+        help="Contact person title and full name. Example: Mr. Robert Lee | Ms. Sarah Johnson | Purchasing Manager"
+    )
+    importer_contact_name = i6.text_input(
+        "進口商聯絡人姓名", 
+        "Robert Lee", 
+        placeholder="例如: Robert Lee",
+        help="Contact person name. Example: Robert Lee | Tom Brown"
+    )
+    importer_phone = i7.text_input(
+        "進口商電話", 
+        "+1-214-7502967", 
+        placeholder="例如: +1-214-7502967",
+        help="Contact phone with country code. Example: +1-213-5559876 | +49-30-12345678"
+    )
     i8, i9, i10 = st.columns(3)
-    importer_email = i8.text_input("進口商 Email", "john.dave@phoenixamericanhospitality.com", placeholder="例如: john.dave@...", help="電子郵件")
-    importer_auth_rep = i9.text_input("進口授權代表姓名", "Joe Reardon", placeholder="例如: Joe Reardon", help="授權代表")
-    importer_auth_rep_title = i10.text_input("進口授權代表職稱", "Director", placeholder="例如: Director", help="代表職稱")
+    importer_email = i8.text_input(
+        "進口商 Email", 
+        "john.dave@phoenixamericanhospitality.com", 
+        placeholder="例如: john.dave@...",
+        help="Contact email address. Example: robert.lee@xyztrading.com"
+    )
+    importer_auth_rep = i9.text_input(
+        "進口授權代表姓名", 
+        "Joe Reardon", 
+        placeholder="例如: Joe Reardon",
+        help="Full name of authorized signatory. Example: Robert Lee | Joe Reardon"
+    )
+    importer_auth_rep_title = i10.text_input(
+        "進口授權代表職稱", 
+        "Director", 
+        placeholder="例如: Director",
+        help="Title of authorized signatory. Example: President | Purchasing Manager | Director"
+    )
 
     st.header("4. 商品細節")
     p1, p2, p3 = st.columns(3)
-    product_name = p1.text_input("商品名稱*", "GeoTextile VIP1230", placeholder="例如: GeoTextile VIP1230", help="商品名稱")
-    product_qty = p2.number_input("數量*", value=100000, help="訂購數量")
-    currency = p3.selectbox("幣別*", ["USD", "EUR", "GBP", "JPY", "AUD", "CAD", "CNY", "HKD", "SGD"], help="計價幣別")
+    product_name = p1.text_input(
+        "商品名稱*", 
+        "GeoTextile VIP1230", 
+        placeholder="例如: GeoTextile VIP1230",
+        help="Full product name and model/type. Example: Wireless Bluetooth Headphones Model BT-500 | GeoTextile VIP1230"
+    )
+    product_qty = p2.number_input(
+        "數量*", 
+        value=100000,
+        help="Quantity and unit of measure. Example: 500 PCS | 1000 UNITS | 200 SETS | 50 CARTONS (Enter integer number)"
+    )
+    currency = p3.selectbox(
+        "幣別*", 
+        ["USD", "EUR", "GBP", "JPY", "AUD", "CAD", "CNY", "HKD", "SGD"],
+        help="Transaction currency. Enter exactly: USD | EUR | GBP | JPY | AUD | CAD | CNY | HKD | SGD"
+    )
     p4, p5 = st.columns(2)
-    unit_price = p4.number_input("單價*", value=2.50, help="單價")
-    total_price = p5.number_input("總價*", value=250000.0, help="總金額")
-    product_description = st.text_area("商品描述*", "200-meter, 70 g/m², black, nonwoven geotextile jumbo rolls, packed ten (10) rolls per carton.", placeholder="例如: 200-meter nonwoven geotextile rolls", help="商品詳細規格描述")
-    product_specs = st.text_input("產品規格", "Width: 2m; Length: 200m; Density: 70g/m²; Color: Black", placeholder="例如: Width: 2m; Length: 200m", help="產品規格")
-    product_packaging = st.text_input("包裝方式", "10 rolls per export-standard carton, 10,000 cartons total", placeholder="例如: 10 rolls per export carton", help="包裝說明")
+    unit_price = p4.number_input(
+        "單價*", 
+        value=2.50,
+        help="Unit price (numbers only, currency stated separately). Example: 45.00 | 128.50 | 350.00"
+    )
+    total_price = p5.number_input(
+        "總價*", 
+        value=250000.0,
+        help="Total contract price (numbers only, currency stated separately). Example: 22500.00 | 64250.00 | 250000.00"
+    )
+    product_description = st.text_area(
+        "商品描述*", 
+        "200-meter, 70 g/m², black, nonwoven geotextile jumbo rolls, packed ten (10) rolls per carton.", 
+        placeholder="例如: 200-meter nonwoven geotextile rolls",
+        help="Detailed product description for customs and commercial documents. Example: Wireless stereo headphones with active noise cancellation, Bluetooth 5.0"
+    )
+    product_specs = st.text_input(
+        "產品規格", 
+        "Width: 2m; Length: 200m; Density: 70g/m²; Color: Black", 
+        placeholder="例如: Width: 2m; Length: 200m",
+        help="Technical specifications, materials, dimensions, grade. Example: Material: ABS plastic + aluminum; Weight: 280g; Color: Black"
+    )
+    product_packaging = st.text_input(
+        "包裝方式", 
+        "10 rolls per export-standard carton, 10,000 cartons total", 
+        placeholder="例如: 10 rolls per export carton",
+        help="Packaging details. Example: 10 PCS per carton, export standard carton 40x30x25cm, total 50 cartons"
+    )
 
     st.header("5. 運輸與支付條件")
     t1, t2, t3 = st.columns(3)
-    place_of_production = t1.text_input("生產地/裝運港*", "Hai Phong Port, Vietnam", placeholder="例如: Hai Phong Port, Vietnam", help="生產地或裝運港")
-    port_of_discharge = t2.text_input("卸貨港/目的港*", "Port of Los Angeles, USA", placeholder="例如: Port of Los Angeles, USA", help="目的港")
-    incoterm = t3.text_input("Incoterms 條款*", "FOB Hai Phong Port Incoterms 2020", placeholder="例如: FOB Hai Phong Port Incoterms 2020", help="國貿條規")
+    place_of_production = t1.text_input(
+        "生產地/裝運港*", 
+        "Hai Phong Port, Vietnam", 
+        placeholder="例如: Hai Phong Port, Vietnam",
+        help="Country or city where goods are manufactured. Examples: CHINA | VIETNAM | TAIWAN | HONG KONG | THAILAND | MALAYSIA"
+    )
+    port_of_discharge = t2.text_input(
+        "卸貨港/目的港*", 
+        "Port of Los Angeles, USA", 
+        placeholder="例如: Port of Los Angeles, USA",
+        help="Port where goods will be unloaded at destination. Examples: Los Angeles | Hamburg | Yokohama | Rotterdam | Sydney | New York"
+    )
+    incoterm = t3.text_input(
+        "Incoterms 條款*", 
+        "FOB Hai Phong Port Incoterms 2020", 
+        placeholder="例如: FOB Hai Phong Port Incoterms 2020",
+        help="Incoterm rule, version and named place. Example: FOB Shenzhen Incoterms 2020 | CIF Los Angeles Incoterms 2020"
+    )
     t4, t5 = st.columns(2)
-    production_date = t4.text_input("預計生產日", "2026-11-01", placeholder="格式: YYYY-MM-DD", help="生產完成日")
-    delivery_date = t5.text_input("預計裝運/交貨日", "2026-12-01", placeholder="格式: YYYY-MM-DD", help="交貨日")
+    production_date = t4.text_input(
+        "預計生產日", 
+        "2026-11-01", 
+        placeholder="格式: YYYY-MM-DD",
+        help="Estimated production completion date. Format: YYYY-MM-DD or YYYY-MM. Example: 2025-05-31 | 2026-11-01"
+    )
+    delivery_date = t5.text_input(
+        "預計裝運/交貨日", 
+        "2026-12-01", 
+        placeholder="格式: YYYY-MM-DD",
+        help="Estimated delivery or shipment date. Format: YYYY-MM-DD or YYYY-MM. Example: 2025-06-30 | 2026-12-01"
+    )
     m1, m2 = st.columns(2)
-    payment_method = m1.text_input("付款方式*", "T/T 30% deposit, 70% before shipment", placeholder="例如: T/T 30% deposit", help="付款方式")
-    payment_timing = m2.text_input("付款時機", "30% Deposit upon signing, 70% T/T before shipment", placeholder="例如: 30% Deposit upon signing", help="付款時間點")
-    bank_details = st.text_input("銀行帳戶資料", "DBS Bank Singapore, A/C: 123-456789-0, SWIFT: DBSSSGSG", placeholder="例如: DBS Bank Singapore...", help="收款銀行帳戶")
+    payment_method = m1.text_input(
+        "付款方式*", 
+        "T/T 30% deposit, 70% before shipment", 
+        placeholder="例如: T/T 30% deposit",
+        help="Payment method and terms. Example: T/T 30% deposit, 70% before shipment | Irrevocable LC at sight"
+    )
+    payment_timing = m2.text_input(
+        "付款時機", 
+        "30% Deposit upon signing, 70% T/T before shipment", 
+        placeholder="例如: 30% Deposit upon signing",
+        help="Payment schedule and due dates. Example: 30% deposit within 7 days of contract signing, 70% balance before shipment"
+    )
+    bank_details = st.text_input(
+        "銀行帳戶資料", 
+        "DBS Bank Singapore, A/C: 123-456789-0, SWIFT: DBSSSGSG", 
+        placeholder="例如: DBS Bank Singapore...",
+        help="Beneficiary bank name, account number, SWIFT code. Example: Bank of China, Shenzhen Branch; A/C: 1234567890; SWIFT: BKCHCNBJ"
+    )
     w1, w2, w3 = st.columns(3)
-    warranty_period = w1.text_input("保固期", "12 months from delivery date", placeholder="例如: 12 months", help="保固期間")
-    governing_law = w2.text_input("準據法", "Laws of Hong Kong", placeholder="例如: Laws of Hong Kong", help="合約準據法")
-    dispute_resolution = w3.text_input("爭議解決機制", "Arbitration under HKIAC Administered Arbitration Rules", placeholder="例如: HKIAC Arbitration", help="仲裁或訴訟機構")
-    partial_shipment = st.selectbox("是否允許分批裝運/轉運", ["Allowed", "Not Allowed"], help="是否允許分批出貨")
+    warranty_period = w1.text_input(
+        "保固期", 
+        "12 months from delivery date", 
+        placeholder="例如: 12 months",
+        help="Product warranty period. Example: 12 months from date of delivery | 2 years from date of manufacture"
+    )
+    governing_law = w2.text_input(
+        "準據法", 
+        "Laws of Hong Kong", 
+        placeholder="例如: Laws of Hong Kong",
+        help="Governing law for the contract. Example: Laws of Hong Kong | Laws of England and Wales"
+    )
+    dispute_resolution = w3.text_input(
+        "爭議解決機制", 
+        "Arbitration under HKIAC Administered Arbitration Rules", 
+        placeholder="例如: HKIAC Arbitration",
+        help="Dispute resolution method, institution and seat. Example: Arbitration under HKIAC Rules, seat Hong Kong"
+    )
+    partial_shipment = st.selectbox(
+        "是否允許分批裝運/轉運", 
+        ["Allowed", "Not Allowed"], 
+        help="Whether partial shipment and transshipment are permitted. Example: Partial shipment allowed, transshipment not allowed"
+    )
 
     submitted = st.form_submit_button("🚀 開始生成法律文件與信用風險報告", type="primary")
 

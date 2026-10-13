@@ -5,9 +5,6 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Optional
 
-# -----------------------------------------------------------------------------
-# 動態添加路徑：解決深層目錄 crew.py 模組導入問題
-# -----------------------------------------------------------------------------
 BASE_DIR = Path(__file__).resolve().parent
 CREWS_DIR = BASE_DIR / "src" / "international_trade_legal_document_automation" / "crews"
 SRC_DIR = BASE_DIR / "src"
