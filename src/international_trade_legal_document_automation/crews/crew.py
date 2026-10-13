@@ -10,12 +10,14 @@ if openrouter_api_key:
     os.environ["OPENAI_API_KEY"] = openrouter_api_key
     os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
 
+# 限制 max_tokens=4096 避免超出 OpenRouter 的單次點數額度限制 
 llm = LLM(
-    model="openrouter/google/gemini-3.5-flash-lite",
-    base_url="https://openrouter.ai/api/v1",
-    api_key=openrouter_api_key,
-    temperature=0.1
-)
+    model="openrouter/google/gemini-3.5-flash-lite", 
+    base_url="https://openrouter.ai/api/v1", 
+    api_key=openrouter_api_key, 
+    temperature=0.1, 
+    max_tokens=4096 
+    )
 
 class InternationalTradeLegalDocumentAutomation:
     def __init__(self):
