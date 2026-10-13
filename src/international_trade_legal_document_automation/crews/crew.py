@@ -2,16 +2,18 @@ import os
 from crewai import Agent, Crew, Process, Task, LLM
 
 # --------------------------------------------------
-# Google Gemini API 設定 (使用 CrewAI 原生 Gemini 支援)
+# 金鑰與 API Base 設定 (OpenRouter + Gemini 3.5 Flash-Lite)
 # --------------------------------------------------
-gemini_api_key = os.getenv("GEMINI_API_KEY") or os.getenv("GOOGLE_API_KEY")
+openrouter_api_key = os.getenv("OPENROUTER_API_KEY")
 
-if gemini_api_key:
-    os.environ["GEMINI_API_KEY"] = gemini_api_key
+if openrouter_api_key:
+    os.environ["OPENAI_API_KEY"] = openrouter_api_key
+    os.environ["OPENAI_API_BASE"] = "https://openrouter.ai/api/v1"
 
 llm = LLM(
-    model="gemini/gemini-1.5-pro",
-    api_key=gemini_api_key,
+    model="openrouter/google/gemini-3.5-flash-lite",
+    base_url="https://openrouter.ai/api/v1",
+    api_key=openrouter_api_key,
     temperature=0.1
 )
 

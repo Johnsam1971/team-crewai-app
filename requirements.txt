@@ -6,6 +6,3 @@ crewai
 fastapi
 pydantic
 uvicorn
-google-generativeai
-protobuf
-litellm
